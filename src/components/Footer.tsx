@@ -82,7 +82,8 @@ export function Footer() {
             </a>
             <p className="text-secondary-muted/80 leading-relaxed mt-2">
               🇺🇬 Uganda · 🇰🇪 Kenya<br />
-              🇸🇸 South Sudan · 🇷🇼 Rwanda
+              🇸🇸 South Sudan · 🇷🇼 Rwanda<br />
+              <span className="text-xs mt-2 inline-block text-accent">🌍 Available for projects worldwide</span>
             </p>
             <Link
               to="/contact"

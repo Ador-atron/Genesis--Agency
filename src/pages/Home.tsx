@@ -40,7 +40,7 @@ export function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-secondary-muted text-lg md:text-xl max-w-[700px] leading-relaxed"
           >
-            Genesis combines strategic web design, conversion-focused copywriting, and local SEO to help businesses across Uganda, Kenya, South Sudan, and Rwanda generate more leads online.
+            Genesis combines strategic web design, conversion-focused copywriting, and local SEO to help businesses across Uganda, Kenya, South Sudan, Rwanda, and beyond generate more leads online.
           </motion.p>
 
           <motion.div
@@ -349,36 +349,50 @@ export function Home() {
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="flex-1 flex flex-col gap-6">
               <span className="text-accent text-xs font-bold uppercase tracking-[0.15em]">Where We Operate</span>
-              <h2 className="text-white">A Distributed Agency Built for East Africa</h2>
+              <h2 className="text-white">A Distributed Agency Built for East Africa & Beyond</h2>
               <p className="text-secondary-muted text-lg leading-relaxed">
-                With team members and partners across four countries, we understand the East African market intimately. Wherever your business operates, we're close enough to understand your customers.
+                With team members and partners across four countries, we understand the East African market intimately. While our core operations are here, our digital expertise knows no borders, and we proudly partner with forward-thinking businesses worldwide.
               </p>
             </div>
             
-            <div className="flex-1 grid grid-cols-2 gap-4 w-full">
-              {[
-                { flag: "🇺🇬", country: "Uganda", city: "Kampala" },
-                { flag: "🇰🇪", country: "Kenya", city: "Nairobi" },
-                { flag: "🇸🇸", country: "South Sudan", city: "Juba" },
-                { flag: "🇷🇼", country: "Rwanda", city: "Kigali" }
-              ].map((loc, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="bg-primary border border-primary-lighter rounded-xl p-6 flex flex-col gap-2 hover:border-accent transition-colors"
-                >
-                  <span className="text-3xl mb-2">{loc.flag}</span>
-                  <h4 className="text-white font-bold">{loc.country}</h4>
-                  <p className="text-secondary-muted text-sm">{loc.city}</p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
-                    <span className="text-xs text-secondary-muted font-medium">Active</span>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="flex-1 flex flex-col gap-4 w-full">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { flag: "🇺🇬", country: "Uganda", city: "Kampala" },
+                  { flag: "🇰🇪", country: "Kenya", city: "Nairobi" },
+                  { flag: "🇸🇸", country: "South Sudan", city: "Juba" },
+                  { flag: "🇷🇼", country: "Rwanda", city: "Kigali" }
+                ].map((loc, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    className="bg-primary border border-primary-lighter rounded-xl p-6 flex flex-col gap-2 hover:border-accent transition-colors"
+                  >
+                    <span className="text-3xl mb-2">{loc.flag}</span>
+                    <h4 className="text-white font-bold">{loc.country}</h4>
+                    <p className="text-secondary-muted text-sm">{loc.city}</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                      <span className="text-xs text-secondary-muted font-medium">Active</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="bg-primary border border-primary-lighter rounded-xl p-6 flex items-center justify-center text-center hover:border-accent transition-colors w-full mt-2"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">🌍</span>
+                  <h4 className="text-white font-semibold">Available for projects worldwide</h4>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>

@@ -49,7 +49,7 @@ export function About() {
                 We're a small, focused team of professionals who came together with complementary skills in website development, copywriting, SEO management, and content creation. We don't do everything — we do the things that matter most for your online growth, and we do them exceptionally well.
               </p>
               <p>
-                Operating across Uganda, Kenya, South Sudan, and Rwanda, we've built Genesis as a distributed agency by design — not by accident. We believe being close to the markets we serve makes us better strategists, better communicators, and better partners.
+                Currently operating across Uganda, Kenya, South Sudan, and Rwanda, we've built Genesis as a distributed agency by design. While our roots are in East Africa, our digital expertise knows no borders, and we proudly partner with forward-thinking businesses worldwide.
               </p>
               <p className="font-semibold text-primary">
                 Our approach is simple: understand your business deeply, build a strategy based on data and experience, execute with precision, and measure everything. No vanity metrics. No empty promises. Just measurable growth.
