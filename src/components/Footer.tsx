@@ -55,7 +55,7 @@ export function Footer() {
           <nav className="flex flex-col gap-4">
             {[
               'Website Design & Development',
-              'Website Copywriting',
+              'Copywriting',
               'Local SEO Optimization',
               'Content Strategy',
             ].map((item) => (

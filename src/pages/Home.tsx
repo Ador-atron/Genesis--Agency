@@ -234,9 +234,9 @@ export function Home() {
               },
               {
                 icon: PenTool,
-                title: "Website Copywriting",
-                desc: "Words that work. We write persuasive landing page copy, clear service descriptions, and compelling calls-to-action that guide your visitors toward becoming customers.",
-                tags: ["Landing Pages", "Service Pages", "CTAs", "Brand Voice"]
+                title: "Copywriting",
+                desc: "Words that work. We write persuasive website copy, engaging blogs, informative articles, and compelling email campaigns that guide your audience toward becoming customers.",
+                tags: ["Website Copy", "Blogs & Articles", "Email Campaigns", "Brand Voice"]
               },
               {
                 icon: Search,

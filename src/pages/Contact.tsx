@@ -95,7 +95,7 @@ export function Contact() {
                 <select id="service" className="bg-primary-soft border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all appearance-none">
                   <option value="">Select a service...</option>
                   <option value="web">Website Design & Development</option>
-                  <option value="copy">Website Copywriting</option>
+                  <option value="copy">Copywriting</option>
                   <option value="seo">Local SEO Optimization</option>
                   <option value="content">Content Strategy</option>
                   <option value="audit">Free Website Audit</option>

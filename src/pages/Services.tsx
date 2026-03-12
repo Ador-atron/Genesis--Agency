@@ -118,7 +118,7 @@ export function Services() {
             <h2>Copywriting That Speaks to Your Customers and Sells for You</h2>
             <div className="text-secondary-muted text-lg leading-relaxed flex flex-col gap-4">
               <p>
-                A beautiful website with weak messaging is like a luxury store with no staff — people walk in, look around, and leave without buying. At Genesis, we write every word on your website with strategic intent.
+                A beautiful website or campaign with weak messaging is like a luxury store with no staff — people walk in, look around, and leave without buying. At Genesis, we write every word with strategic intent, whether it's for your website, blog, or email list.
               </p>
               <p>
                 Our copywriting process starts with understanding your customer — what they need, what they fear, and what motivates them to take action. Then we craft messaging that connects emotionally, communicates your value clearly, and guides readers toward your call-to-action with confidence.
@@ -127,10 +127,10 @@ export function Services() {
 
             <div className="flex flex-col gap-4 mt-4">
               {[
-                "Landing page copy that converts cold traffic into warm leads",
-                "Service page descriptions that clearly communicate your value",
-                "Homepage messaging that captures attention in under 5 seconds",
-                "Call-to-action copy that creates urgency without being pushy"
+                "Website copy that converts cold traffic into warm leads",
+                "Engaging blogs and articles that build industry authority",
+                "Email campaigns that nurture prospects and drive sales",
+                "Service descriptions that clearly communicate your value"
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <CheckCircle2 size={20} className="text-accent shrink-0 mt-1" />
