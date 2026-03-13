@@ -3,7 +3,7 @@ import { Twitter, Instagram, Linkedin, Dribbble } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-primary relative overflow-hidden border-t border-primary-lighter pt-20 pb-8">
+    <footer className="bg-primary relative z-10 overflow-hidden border-t border-primary-lighter pt-20 pb-8">
       {/* Decorative top line */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-50 animate-pulse" />
 

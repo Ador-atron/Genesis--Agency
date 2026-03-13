@@ -1,12 +1,32 @@
-import { motion } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, ChevronDown, MonitorSmartphone, PenTool, Search, FileText } from 'lucide-react';
 
 export function Home() {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-primary px-6 py-20">
+    <div className="flex flex-col min-h-screen relative">
+      {/* Fixed Background Video */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <motion.video
+          style={{ y }}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-[130%] object-cover opacity-100"
+          src="https://cdn.jsdelivr.net/gh/Ador-atron/Project-Files-@9620b31c9503650f6a6928087661fef7337a4503/background.mp4.mp4"
+        />
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-primary/60" />
+      </div>
+
+      {/* Content wrapper with z-10 */}
+      <div className="relative z-10 flex flex-col">
+        {/* Hero Section */}
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-6 py-20">
         {/* Animated Particle Field (Simplified) */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-accent rounded-full animate-ping" />
@@ -76,7 +96,7 @@ export function Home() {
       </section>
 
       {/* Social Proof Bar */}
-      <section className="bg-primary-soft py-8 border-y border-primary-lighter overflow-hidden">
+      <section className="bg-primary-soft/40 backdrop-blur-sm py-8 border-y border-primary-lighter overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-accent text-sm md:text-base font-medium uppercase tracking-widest text-center">
             <span className="flex items-center gap-2">🏢 50+ Business Websites Launched</span>
@@ -91,7 +111,7 @@ export function Home() {
       </section>
 
       {/* Problem Section */}
-      <section className="py-24 md:py-32 bg-gradient-to-b from-primary to-primary-soft px-6">
+      <section className="py-24 md:py-32 bg-gradient-to-b from-primary/50 to-primary-soft/50 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="flex flex-col gap-8">
             <div className="flex items-center gap-4">
@@ -172,7 +192,7 @@ export function Home() {
       </section>
 
       {/* Solution Section */}
-      <section className="py-24 md:py-32 bg-secondary px-6 text-primary">
+      <section className="py-24 md:py-32 bg-secondary/95 backdrop-blur-md px-6 text-primary">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center gap-8">
           <div className="flex items-center gap-4">
             <div className="w-10 h-px bg-primary-lighter" />
@@ -214,7 +234,7 @@ export function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-24 md:py-32 bg-primary px-6">
+      <section className="py-24 md:py-32 bg-transparent px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col gap-6 mb-16">
             <span className="text-accent text-xs font-bold uppercase tracking-[0.15em]">What We Do</span>
@@ -288,7 +308,7 @@ export function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 md:py-32 bg-secondary px-6 relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-secondary/95 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxwYXRoIGQ9Ik0wIDBoMjB2MjBIMHoiIGZpbGw9Im5vbmUiLz4KPGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMTkyLCAxOTIsIDE5MiwgMC4wNSkiLz4KPC9zdmc+')] opacity-50" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col items-center text-center gap-6 mb-16">
@@ -344,7 +364,7 @@ export function Home() {
       </section>
 
       {/* Locations Section */}
-      <section className="py-24 md:py-32 bg-primary-soft px-6 border-t border-primary-lighter">
+      <section className="py-24 md:py-32 bg-primary-soft/50 px-6 border-t border-primary-lighter">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="flex-1 flex flex-col gap-6">
@@ -399,7 +419,7 @@ export function Home() {
       </section>
 
       {/* Free Audit CTA */}
-      <section className="py-24 md:py-32 bg-primary relative overflow-hidden px-6 border-t border-primary-lighter">
+      <section className="py-24 md:py-32 bg-transparent relative overflow-hidden px-6 border-t border-primary-lighter">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(192,192,192,0.1)_0%,transparent_70%)] pointer-events-none" />
         
         <div className="max-w-3xl mx-auto text-center relative z-10 flex flex-col items-center gap-8">
@@ -442,6 +462,7 @@ export function Home() {
           </p>
         </div>
       </section>
+      </div>
     </div>
   );
 }
