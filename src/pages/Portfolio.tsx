@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 const categories = ['All', 'Website Projects', 'Copywriting Work', 'SEO Case Studies', 'Content Writing Samples'];
@@ -143,7 +142,7 @@ export function Portfolio() {
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <AnimatePresence mode="popLayout">
+            <AnimatePresence>
               {filteredItems.map((item) => (
                 <motion.div
                   key={item.id}
