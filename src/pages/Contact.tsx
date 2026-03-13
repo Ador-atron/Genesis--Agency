@@ -29,7 +29,7 @@ export function Contact() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-primary">
+    <div className="flex flex-col min-h-screen relative">
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden px-6 py-20 border-b border-primary-lighter">
         <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
@@ -71,28 +71,28 @@ export function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="text-sm font-medium text-secondary-muted">Full Name *</label>
-                  <input type="text" id="name" required placeholder="Your full name" className="bg-primary-soft border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="text" id="name" required placeholder="Your full name" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <label htmlFor="email" className="text-sm font-medium text-secondary-muted">Email Address *</label>
-                  <input type="email" id="email" required placeholder="your@email.com" className="bg-primary-soft border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="email" id="email" required placeholder="your@email.com" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="phone" className="text-sm font-medium text-secondary-muted">Phone / WhatsApp</label>
-                  <input type="tel" id="phone" placeholder="+256 XXX XXX XXX" className="bg-primary-soft border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="tel" id="phone" placeholder="+256 XXX XXX XXX" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <label htmlFor="company" className="text-sm font-medium text-secondary-muted">Business Name</label>
-                  <input type="text" id="company" placeholder="Your company name" className="bg-primary-soft border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="text" id="company" placeholder="Your company name" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
               </div>
 
               <div className="flex flex-col gap-2">
                 <label htmlFor="service" className="text-sm font-medium text-secondary-muted">Service Interested In</label>
-                <select id="service" className="bg-primary-soft border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all appearance-none">
+                <select id="service" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all appearance-none">
                   <option value="">Select a service...</option>
                   <option value="web">Website Design & Development</option>
                   <option value="copy">Copywriting</option>
@@ -105,7 +105,7 @@ export function Contact() {
 
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="text-sm font-medium text-secondary-muted">Your Message *</label>
-                <textarea id="message" required rows={5} placeholder="Tell us about your project, goals, and any challenges you're facing..." className="bg-primary-soft border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none" />
+                <textarea id="message" required rows={5} placeholder="Tell us about your project, goals, and any challenges you're facing..." className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none" />
               </div>
 
               <button
@@ -141,7 +141,7 @@ export function Contact() {
             
             <div className="flex flex-col gap-8">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary-soft border border-primary-lighter flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-full bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter flex items-center justify-center shrink-0">
                   <Mail className="text-accent" size={24} />
                 </div>
                 <div>
@@ -151,7 +151,7 @@ export function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary-soft border border-primary-lighter flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-full bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter flex items-center justify-center shrink-0">
                   <Phone className="text-[#25D366]" size={24} />
                 </div>
                 <div>
@@ -164,7 +164,7 @@ export function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary-soft border border-primary-lighter flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-full bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter flex items-center justify-center shrink-0">
                   <MapPin className="text-accent" size={24} />
                 </div>
                 <div>
@@ -182,7 +182,7 @@ export function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary-soft border border-primary-lighter flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-full bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter flex items-center justify-center shrink-0">
                   <Clock className="text-accent" size={24} />
                 </div>
                 <div>
@@ -192,7 +192,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="bg-primary-soft border border-primary-lighter p-6 rounded-xl mt-4">
+            <div className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter p-6 rounded-xl mt-4">
               <p className="text-sm text-secondary-muted flex items-center gap-2">
                 <span className="text-accent">🔒</span> Your information is secure and will never be shared with third parties.
               </p>
@@ -202,7 +202,7 @@ export function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-secondary text-primary px-6">
+      <section className="py-24 bg-secondary/80 backdrop-blur-md text-primary px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-center mb-16">Frequently Asked Questions</h2>
           

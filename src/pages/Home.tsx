@@ -1,32 +1,12 @@
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, ChevronDown, MonitorSmartphone, PenTool, Search, FileText } from 'lucide-react';
 
 export function Home() {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-
   return (
     <div className="flex flex-col min-h-screen relative">
-      {/* Fixed Background Video */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <motion.video
-          style={{ y }}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-[130%] object-cover opacity-100"
-          src="https://cdn.jsdelivr.net/gh/Ador-atron/Project-Files-@9620b31c9503650f6a6928087661fef7337a4503/background.mp4.mp4"
-        />
-        {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-primary/60" />
-      </div>
-
-      {/* Content wrapper with z-10 */}
-      <div className="relative z-10 flex flex-col">
-        {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-6 py-20">
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-6 py-20">
         {/* Animated Particle Field (Simplified) */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-accent rounded-full animate-ping" />
@@ -168,13 +148,13 @@ export function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[500px] lg:h-full min-h-[500px] rounded-2xl overflow-hidden border border-primary-lighter bg-primary-soft shadow-2xl group"
+            className="relative h-[500px] lg:h-full min-h-[500px] rounded-2xl overflow-hidden border border-primary-lighter bg-primary-soft/50 backdrop-blur-sm shadow-2xl group"
           >
             {/* Abstract visual representation */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-soft to-primary-lighter opacity-80" />
             <div className="absolute inset-0 flex items-center justify-center p-8">
-              <div className="w-full max-w-md bg-primary border border-primary-lighter rounded-lg shadow-2xl overflow-hidden transform group-hover:rotate-0 rotate-2 transition-transform duration-700">
-                <div className="h-8 border-b border-primary-lighter bg-primary-soft flex items-center px-4 gap-2">
+              <div className="w-full max-w-md bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg shadow-2xl overflow-hidden transform group-hover:rotate-0 rotate-2 transition-transform duration-700">
+                <div className="h-8 border-b border-primary-lighter bg-primary-soft/50 backdrop-blur-sm flex items-center px-4 gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500/50" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
                   <div className="w-3 h-3 rounded-full bg-green-500/50" />
@@ -192,7 +172,7 @@ export function Home() {
       </section>
 
       {/* Solution Section */}
-      <section className="py-24 md:py-32 bg-secondary/95 backdrop-blur-md px-6 text-primary">
+      <section className="py-24 md:py-32 bg-secondary/80 backdrop-blur-md px-6 text-primary">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center gap-8">
           <div className="flex items-center gap-4">
             <div className="w-10 h-px bg-primary-lighter" />
@@ -222,7 +202,7 @@ export function Home() {
                 className="flex flex-col items-center text-center gap-4 relative"
               >
                 <div className="text-6xl font-black text-primary/5 select-none absolute -top-8 left-1/2 -translate-x-1/2">{step.num}</div>
-                <div className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mb-4 relative z-10 shadow-xl">
+                <div className="w-16 h-16 rounded-full bg-primary/80 backdrop-blur-sm text-white flex items-center justify-center text-xl font-bold mb-4 relative z-10 shadow-xl">
                   {step.num}
                 </div>
                 <h4 className="font-bold">{step.title}</h4>
@@ -277,7 +257,7 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="bg-primary-soft border border-primary-lighter rounded-2xl p-8 md:p-10 hover:border-accent hover:shadow-silver-glow hover:-translate-y-2 transition-all duration-300 group flex flex-col h-full"
+                className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-2xl p-8 md:p-10 hover:border-accent hover:shadow-silver-glow hover:-translate-y-2 transition-all duration-300 group flex flex-col h-full"
               >
                 <service.icon className="text-accent mb-6" size={48} strokeWidth={1.5} />
                 <h3 className="text-white mb-4">{service.title}</h3>
@@ -285,7 +265,7 @@ export function Home() {
                 
                 <div className="flex flex-wrap gap-2 mb-8">
                   {service.tags.map(tag => (
-                    <span key={tag} className="text-xs font-medium text-secondary-muted bg-primary border border-primary-lighter px-3 py-1 rounded-full">
+                    <span key={tag} className="text-xs font-medium text-secondary-muted bg-primary/50 backdrop-blur-sm border border-primary-lighter px-3 py-1 rounded-full">
                       {tag}
                     </span>
                   ))}
@@ -308,7 +288,7 @@ export function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 md:py-32 bg-secondary/95 px-6 relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-secondary/80 backdrop-blur-md px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxwYXRoIGQ9Ik0wIDBoMjB2MjBIMHoiIGZpbGw9Im5vbmUiLz4KPGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMTkyLCAxOTIsIDE5MiwgMC4wNSkiLz4KPC9zdmc+')] opacity-50" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col items-center text-center gap-6 mb-16">
@@ -389,7 +369,7 @@ export function Home() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1, duration: 0.5 }}
-                    className="bg-primary border border-primary-lighter rounded-xl p-6 flex flex-col gap-2 hover:border-accent transition-colors"
+                    className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-xl p-6 flex flex-col gap-2 hover:border-accent transition-colors"
                   >
                     <span className="text-3xl mb-2">{loc.flag}</span>
                     <h4 className="text-white font-bold">{loc.country}</h4>
@@ -406,7 +386,7 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="bg-primary border border-primary-lighter rounded-xl p-6 flex items-center justify-center text-center hover:border-accent transition-colors w-full mt-2"
+                className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-xl p-6 flex items-center justify-center text-center hover:border-accent transition-colors w-full mt-2"
               >
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">🌍</span>
@@ -439,13 +419,13 @@ export function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center w-full mt-4">
-            <div className="flex items-center gap-2 text-sm text-white bg-primary-soft px-4 py-2 rounded-full border border-primary-lighter">
+            <div className="flex items-center gap-2 text-sm text-white bg-primary-soft/50 backdrop-blur-sm px-4 py-2 rounded-full border border-primary-lighter">
               <CheckCircle2 size={16} className="text-success" /> Design & UX
             </div>
-            <div className="flex items-center gap-2 text-sm text-white bg-primary-soft px-4 py-2 rounded-full border border-primary-lighter">
+            <div className="flex items-center gap-2 text-sm text-white bg-primary-soft/50 backdrop-blur-sm px-4 py-2 rounded-full border border-primary-lighter">
               <CheckCircle2 size={16} className="text-success" /> SEO Health
             </div>
-            <div className="flex items-center gap-2 text-sm text-white bg-primary-soft px-4 py-2 rounded-full border border-primary-lighter">
+            <div className="flex items-center gap-2 text-sm text-white bg-primary-soft/50 backdrop-blur-sm px-4 py-2 rounded-full border border-primary-lighter">
               <CheckCircle2 size={16} className="text-success" /> Conversion
             </div>
           </div>
@@ -462,7 +442,6 @@ export function Home() {
           </p>
         </div>
       </section>
-      </div>
     </div>
   );
 }

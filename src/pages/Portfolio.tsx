@@ -90,7 +90,7 @@ export function Portfolio() {
     : portfolioItems.filter(item => item.category === activeCategory);
 
   return (
-    <div className="flex flex-col min-h-screen bg-primary">
+    <div className="flex flex-col min-h-screen relative">
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden px-6 py-20 border-b border-primary-lighter">
         <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
@@ -116,7 +116,7 @@ export function Portfolio() {
       </section>
 
       {/* Filter Bar */}
-      <section className="sticky top-[72px] md:top-[88px] z-30 bg-primary/90 backdrop-blur-xl border-b border-primary-lighter py-4 px-6 overflow-x-auto no-scrollbar">
+      <section className="sticky top-[72px] md:top-[88px] z-30 bg-primary/80 backdrop-blur-xl border-b border-primary-lighter py-4 px-6 overflow-x-auto no-scrollbar">
         <div className="max-w-7xl mx-auto flex items-center gap-4 md:gap-8 min-w-max">
           {categories.map((category) => (
             <button
@@ -152,7 +152,7 @@ export function Portfolio() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4 }}
-                  className="group relative rounded-2xl overflow-hidden bg-primary-soft border border-primary-lighter aspect-[4/3] cursor-pointer"
+                  className="group relative rounded-2xl overflow-hidden bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter aspect-[4/3] cursor-pointer"
                 >
                   <img
                     src={item.image}
@@ -184,7 +184,7 @@ export function Portfolio() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-secondary text-primary relative overflow-hidden px-6">
+      <section className="py-32 bg-secondary/80 backdrop-blur-md text-primary relative overflow-hidden px-6">
         <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center gap-8">
           <h2 className="text-primary max-w-3xl">Like What You See? Let's Create Something Even Better for Your Business.</h2>
           <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">

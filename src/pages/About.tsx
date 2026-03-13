@@ -4,7 +4,7 @@ import { Target, Eye, Shield, ArrowRight } from 'lucide-react';
 
 export function About() {
   return (
-    <div className="flex flex-col min-h-screen bg-primary">
+    <div className="flex flex-col min-h-screen relative">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden px-6 py-20 border-b border-primary-lighter">
         <div className="absolute inset-0 opacity-20 pointer-events-none">
@@ -36,7 +36,7 @@ export function About() {
       </section>
 
       {/* Our Story */}
-      <section className="py-24 md:py-32 bg-secondary text-primary px-6">
+      <section className="py-24 md:py-32 bg-secondary/80 backdrop-blur-md text-primary px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="flex flex-col gap-8">
             <span className="text-primary-lighter text-xs font-bold uppercase tracking-[0.15em]">Our Story</span>
@@ -57,7 +57,7 @@ export function About() {
             </div>
           </div>
           
-          <div className="relative h-[500px] lg:h-[700px] rounded-2xl overflow-hidden bg-primary-soft border border-primary-lighter shadow-2xl">
+          <div className="relative h-[500px] lg:h-[700px] rounded-2xl overflow-hidden bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter shadow-2xl">
             <img
               src="https://picsum.photos/seed/teamwork/800/1000?blur=1"
               alt="Team collaboration"
@@ -70,7 +70,7 @@ export function About() {
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="py-24 md:py-32 bg-primary px-6 border-y border-primary-lighter">
+      <section className="py-24 md:py-32 bg-transparent px-6 border-y border-primary-lighter">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
@@ -102,7 +102,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.15, duration: 0.6 }}
-              className="bg-primary-soft border border-primary-lighter rounded-2xl p-8 hover:border-accent transition-colors duration-300"
+              className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-2xl p-8 hover:border-accent transition-colors duration-300"
             >
               <item.icon className="text-accent mb-6" size={40} strokeWidth={1.5} />
               <h3 className="text-white mb-4">{item.title}</h3>
@@ -113,50 +113,20 @@ export function About() {
       </section>
 
       {/* The Team */}
-      <section className="py-24 md:py-32 bg-secondary text-primary px-6">
+      <section className="py-24 md:py-32 bg-secondary/80 backdrop-blur-md text-primary px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col items-center text-center gap-6 mb-16">
+          <div className="flex flex-col items-center text-center gap-6">
             <span className="text-primary-lighter text-xs font-bold uppercase tracking-[0.15em]">The People Behind Genesis</span>
             <h2>A Small Team. A Big Impact.</h2>
             <p className="text-primary-lighter text-lg max-w-2xl leading-relaxed">
               We're a lean, distributed team of specialists — each an expert in their craft. No account managers, no middlemen. When you work with Genesis, you work directly with the people building your digital presence.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { name: "Alex K.", role: "Creative Director & Co-Founder", location: "🇺🇬 Uganda", img: "https://picsum.photos/seed/person1/400/400" },
-              { name: "Sarah M.", role: "Lead Web Developer", location: "🇰🇪 Kenya", img: "https://picsum.photos/seed/person2/400/400" },
-              { name: "David O.", role: "SEO & Content Strategist", location: "🇷🇼 Rwanda", img: "https://picsum.photos/seed/person3/400/400" },
-              { name: "Grace T.", role: "Copywriter & Brand Strategist", location: "🇸🇸 South Sudan", img: "https://picsum.photos/seed/person4/400/400" }
-            ].map((member, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="flex flex-col items-center text-center group"
-              >
-                <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-primary-lighter mb-6 group-hover:border-primary transition-colors duration-300">
-                  <img
-                    src={member.img}
-                    alt={member.name}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                  />
-                </div>
-                <h4 className="font-bold mb-1">{member.name}</h4>
-                <p className="text-primary-lighter text-sm mb-2">{member.role}</p>
-                <span className="text-xs font-medium bg-primary/5 px-3 py-1 rounded-full">{member.location}</span>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 md:py-32 bg-primary px-6 border-t border-primary-lighter">
+      <section className="py-24 md:py-32 bg-transparent px-6 border-t border-primary-lighter">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-white max-w-3xl mb-16">Why Businesses Choose Genesis Over Other Agencies</h2>
           
@@ -180,7 +150,7 @@ export function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-primary relative overflow-hidden px-6 border-t border-primary-lighter">
+      <section className="py-32 bg-transparent relative overflow-hidden px-6 border-t border-primary-lighter">
         <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center gap-8">
           <h2 className="text-white max-w-3xl">Ready to Work With a Team That Actually Cares About Your Results?</h2>
           <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">

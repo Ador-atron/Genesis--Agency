@@ -4,7 +4,7 @@ import { ArrowRight, MonitorSmartphone, PenTool, Search, FileText, CheckCircle2 
 
 export function Services() {
   return (
-    <div className="flex flex-col min-h-screen bg-primary">
+    <div className="flex flex-col min-h-screen relative">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden px-6 py-20 border-b border-primary-lighter">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxwYXRoIGQ9Ik0wIDBoMjB2MjBIMHoiIGZpbGw9Im5vbmUiLz4KPGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMTkyLCAxOTIsIDE5MiwgMC4wNSkiLz4KPC9zdmc+')] opacity-50" />
@@ -32,7 +32,7 @@ export function Services() {
       </section>
 
       {/* Service 01: Web Design */}
-      <section className="py-24 md:py-32 bg-secondary px-6 text-primary">
+      <section className="py-24 md:py-32 bg-secondary/80 backdrop-blur-md px-6 text-primary">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="flex flex-col gap-8">
             <span className="text-primary-lighter text-xs font-bold uppercase tracking-[0.15em]">Service 01</span>
@@ -72,7 +72,7 @@ export function Services() {
             </div>
           </div>
           
-          <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden bg-primary-soft border border-primary-lighter shadow-2xl flex items-center justify-center p-8">
+          <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter shadow-2xl flex items-center justify-center p-8">
              <div className="w-full h-full border border-primary-lighter rounded-lg bg-primary relative overflow-hidden flex flex-col">
                <div className="h-10 bg-primary-lighter flex items-center px-4 gap-2">
                  <div className="w-3 h-3 rounded-full bg-red-500" />
@@ -91,9 +91,9 @@ export function Services() {
       </section>
 
       {/* Service 02: Copywriting */}
-      <section className="py-24 md:py-32 bg-primary px-6 text-white border-y border-primary-lighter">
+      <section className="py-24 md:py-32 bg-transparent px-6 text-white border-y border-primary-lighter">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden bg-primary-soft border border-primary-lighter shadow-2xl flex items-center justify-center p-8">
+          <div className="order-2 lg:order-1 relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter shadow-2xl flex items-center justify-center p-8">
              <div className="w-full max-w-md bg-primary border border-primary-lighter rounded-lg p-8 flex flex-col gap-6 relative">
                <div className="absolute -right-4 -top-4 bg-accent text-primary text-xs font-bold px-3 py-1 rounded-full shadow-lg rotate-12">
                  Headline
@@ -149,7 +149,7 @@ export function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-primary relative overflow-hidden px-6">
+      <section className="py-32 bg-transparent relative overflow-hidden px-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(192,192,192,0.15)_0%,transparent_60%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center gap-8">
           <h2 className="text-white">Not Sure Which Service You Need? <br className="hidden md:block" /><span className="text-gradient-silver">Let's Figure It Out Together.</span></h2>

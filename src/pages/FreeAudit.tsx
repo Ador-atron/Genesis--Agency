@@ -18,7 +18,7 @@ export function FreeAudit() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-primary">
+    <div className="flex flex-col min-h-screen relative">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden px-6 py-20 border-b border-primary-lighter">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(192,192,192,0.15)_0%,transparent_60%)] pointer-events-none" />
@@ -90,7 +90,7 @@ export function FreeAudit() {
                   transition={{ delay: i * 0.15, duration: 0.5 }}
                   className="flex gap-6"
                 >
-                  <div className="w-12 h-12 rounded-full bg-primary-soft border border-primary-lighter flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter flex items-center justify-center shrink-0">
                     <CheckCircle2 className="text-accent" size={24} />
                   </div>
                   <div>
@@ -101,7 +101,7 @@ export function FreeAudit() {
               ))}
             </div>
 
-            <div className="bg-primary-soft border border-primary-lighter p-8 rounded-2xl mt-8">
+            <div className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter p-8 rounded-2xl mt-8">
               <h4 className="text-white mb-6">Businesses That Started With a Free Audit</h4>
               <div className="flex flex-col gap-6">
                 <div className="border-l-2 border-accent pl-4">
@@ -118,29 +118,29 @@ export function FreeAudit() {
 
           {/* Form */}
           <div className="relative">
-            <div className="sticky top-32 bg-primary-soft border border-primary-lighter rounded-2xl p-8 shadow-2xl">
+            <div className="sticky top-32 bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-2xl p-8 shadow-2xl">
               <h3 className="text-white mb-2">Request Your Audit</h3>
               <p className="text-secondary-muted mb-8">Fill out the details below to get started.</p>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="text-sm font-medium text-secondary-muted">Full Name *</label>
-                  <input type="text" id="name" required placeholder="Your full name" className="bg-primary border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="text" id="name" required placeholder="Your full name" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
                 
                 <div className="flex flex-col gap-2">
                   <label htmlFor="email" className="text-sm font-medium text-secondary-muted">Email Address *</label>
-                  <input type="email" id="email" required placeholder="your@email.com" className="bg-primary border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="email" id="email" required placeholder="your@email.com" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label htmlFor="website" className="text-sm font-medium text-secondary-muted">Website URL *</label>
-                  <input type="url" id="website" required placeholder="https://yourwebsite.com" className="bg-primary border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="url" id="website" required placeholder="https://yourwebsite.com" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label htmlFor="challenge" className="text-sm font-medium text-secondary-muted">Biggest Challenge</label>
-                  <select id="challenge" className="bg-primary border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all appearance-none">
+                  <select id="challenge" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all appearance-none">
                     <option value="">My main challenge is...</option>
                     <option value="no-website">No website yet</option>
                     <option value="outdated">Outdated design</option>
