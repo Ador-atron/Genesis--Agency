@@ -31,7 +31,7 @@ export function FreeAudit() {
             className="text-white"
           >
             Your Website Might Be Costing You Thousands in Lost Revenue. <br className="hidden md:block" />
-            <span className="text-gradient-silver">Let's Find Out — For Free.</span>
+            <span className="text-gradient-silver">Let's Find Out For Free.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export function FreeAudit() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-secondary-muted text-lg md:text-xl max-w-2xl leading-relaxed"
           >
-            In just 48 hours, we'll deliver a comprehensive audit of your website's design, messaging, SEO performance, and conversion potential — completely free, with zero obligation.
+            In just 48 hours, we'll deliver a comprehensive audit of your website's design, messaging, SEO performance, and conversion potential completely free, with zero obligation.
           </motion.p>
 
           <motion.div
@@ -106,11 +106,11 @@ export function FreeAudit() {
               <div className="flex flex-col gap-6">
                 <div className="border-l-2 border-accent pl-4">
                   <p className="text-secondary-muted italic mb-2">"The audit revealed exactly why our traffic wasn't converting. Implementing their suggestions doubled our leads in a month."</p>
-                  <span className="text-xs text-white font-bold uppercase tracking-widest">— Logistics Co.</span>
+                  <span className="text-xs text-white font-bold uppercase tracking-widest">Logistics Co.</span>
                 </div>
                 <div className="border-l-2 border-accent pl-4">
                   <p className="text-secondary-muted italic mb-2">"I thought our site was fine until Genesis showed me how slow it was on mobile. The audit was eye-opening."</p>
-                  <span className="text-xs text-white font-bold uppercase tracking-widest">— Retail Brand</span>
+                  <span className="text-xs text-white font-bold uppercase tracking-widest">Retail Brand</span>
                 </div>
               </div>
             </div>

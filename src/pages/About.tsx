@@ -30,7 +30,7 @@ export function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-secondary-muted text-lg md:text-xl max-w-2xl leading-relaxed"
           >
-            Genesis was founded with a simple but powerful belief: every business deserves a digital presence that actually works. Not just looks — works.
+            Genesis was founded with a simple but powerful belief: every business deserves a digital presence that actually works. Not just looks, but works.
           </motion.p>
         </div>
       </section>
@@ -43,10 +43,10 @@ export function About() {
             <h2>Born From Frustration With the Status Quo</h2>
             <div className="text-primary-lighter text-lg leading-relaxed flex flex-col gap-6">
               <p>
-                Genesis started because we saw the same problem playing out across East Africa: talented businesses with incredible services — but terrible online presences. Construction companies with decade-long track records but no website. Restaurants with award-worthy food but invisible on Google. Clinics saving lives but losing patients to competitors with better marketing.
+                Genesis started because we saw the same problem playing out across East Africa: talented businesses with incredible services but terrible online presences. Construction companies with decade-long track records but no website. Restaurants with award-worthy food but invisible on Google. Clinics saving lives but losing patients to competitors with better marketing.
               </p>
               <p>
-                We're a small, focused team of professionals who came together with complementary skills in website development, copywriting, SEO management, and content creation. We don't do everything — we do the things that matter most for your online growth, and we do them exceptionally well.
+                We're a small, focused team of professionals who came together with complementary skills in website development, copywriting, SEO management, and content creation. We don't do everything. We do the things that matter most for your online growth, and we do them exceptionally well.
               </p>
               <p>
                 Currently operating across Uganda, Kenya, South Sudan, and Rwanda, we've built Genesis as a distributed agency by design. While our roots are in East Africa, our digital expertise knows no borders, and we proudly partner with forward-thinking businesses worldwide.
@@ -81,17 +81,17 @@ export function About() {
             {
               icon: Eye,
               title: "Our Vision",
-              desc: "Become the most trusted digital growth partner for ambitious businesses in East Africa — known for strategy, execution, and results."
+              desc: "Become the most trusted digital growth partner for ambitious businesses in East Africa, known for strategy, execution, and results."
             },
             {
               icon: Shield,
               title: "Our Values",
               desc: (
                 <ul className="flex flex-col gap-3">
-                  <li><strong className="text-white">Strategy First</strong> — We think before we build.</li>
-                  <li><strong className="text-white">Results Obsessed</strong> — If it doesn't generate results, we don't do it.</li>
-                  <li><strong className="text-white">Transparent Always</strong> — No jargon, no hidden costs.</li>
-                  <li><strong className="text-white">Growth Mindset</strong> — Always learning, always improving.</li>
+                  <li><strong className="text-white">Strategy First:</strong> We think before we build.</li>
+                  <li><strong className="text-white">Results Obsessed:</strong> If it doesn't generate results, we don't do it.</li>
+                  <li><strong className="text-white">Transparent Always:</strong> No jargon, no hidden costs.</li>
+                  <li><strong className="text-white">Growth Mindset:</strong> Always learning, always improving.</li>
                 </ul>
               )
             }
@@ -119,7 +119,7 @@ export function About() {
             <span className="text-primary-lighter text-xs font-bold uppercase tracking-[0.15em]">The People Behind Genesis</span>
             <h2>A Small Team. A Big Impact.</h2>
             <p className="text-primary-lighter text-lg max-w-2xl leading-relaxed">
-              We're a lean, distributed team of specialists — each an expert in their craft. No account managers, no middlemen. When you work with Genesis, you work directly with the people building your digital presence.
+              We're a lean, distributed team of specialists, each an expert in their craft. No account managers, no middlemen. When you work with Genesis, you work directly with the people building your digital presence.
             </p>
           </div>
         </div>
@@ -132,7 +132,7 @@ export function About() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
             {[
-              { num: "01", title: "Strategy-Driven Design", desc: "We don't start with Figma — we start with strategy. Every design decision is rooted in your business goals and customer behavior." },
+              { num: "01", title: "Strategy-Driven Design", desc: "We don't start with Figma. We start with strategy. Every design decision is rooted in your business goals and customer behavior." },
               { num: "02", title: "Conversion-Focused Copywriting", desc: "Your website's words matter as much as its design. We write every headline, description, and CTA to persuade and convert." },
               { num: "03", title: "SEO-Ready From Day One", desc: "We don't 'add SEO later.' Every website we build is architected for search engine visibility from the very first line of code." },
               { num: "04", title: "East Africa Market Expertise", desc: "We're not a foreign agency guessing about your market. We live and work in East Africa. We understand your customers because they're our neighbors." }

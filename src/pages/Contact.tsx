@@ -24,7 +24,7 @@ export function Contact() {
     { q: "How much does a website cost?", a: "Every project is unique, so pricing depends on scope. We offer solutions for different budgets and always provide transparent quotes with no hidden costs. Contact us for a custom estimate." },
     { q: "Do you work with businesses outside East Africa?", a: "Yes, absolutely! While our core team is based in East Africa (Uganda, Kenya, South Sudan, and Rwanda), we operate globally and welcome projects from businesses anywhere in the world." },
     { q: "Do you offer website maintenance after launch?", a: "Yes. We offer ongoing maintenance and support packages to ensure your website stays updated, secure, and performing at its best." },
-    { q: "What makes Genesis different from other web design agencies?", a: "We combine strategy-driven design, conversion-focused copywriting, and SEO-ready architecture in every project. Most agencies do one of these well — we integrate all three from day one." },
+    { q: "What makes Genesis different from other web design agencies?", a: "We combine strategy-driven design, conversion-focused copywriting, and SEO-ready architecture in every project. Most agencies do one of these well, but we integrate all three from day one." },
     { q: "Can you help with just copywriting or just SEO, without a full website build?", a: "Absolutely. Our services are modular. You can engage us for copywriting only, SEO only, content strategy, or any combination that fits your needs." }
   ];
 
@@ -49,7 +49,7 @@ export function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-secondary-muted text-lg md:text-xl max-w-2xl leading-relaxed"
           >
-            Whether you need a new website, better copy, improved SEO, or a full digital strategy — we're ready to help. Reach out and let's talk about what growth looks like for your business.
+            Whether you need a new website, better copy, improved SEO, or a full digital strategy, we're ready to help. Reach out and let's talk about what growth looks like for your business.
           </motion.p>
         </div>
       </section>
@@ -99,7 +99,7 @@ export function Contact() {
                   <option value="seo">Local SEO Optimization</option>
                   <option value="content">Content Strategy</option>
                   <option value="audit">Free Website Audit</option>
-                  <option value="other">Not sure — I need advice</option>
+                  <option value="other">Not sure, I need advice</option>
                 </select>
               </div>
 

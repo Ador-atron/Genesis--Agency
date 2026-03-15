@@ -66,7 +66,7 @@ const portfolioItems: PortfolioItem[] = [
   // SEO Case Studies
   {
     id: 'seo-1',
-    title: "The Best Version of You Is No Longer a Destination — It's a Starting Point",
+    title: "The Best Version of You Is No Longer a Destination, It's a Starting Point",
     category: 'SEO Case Studies',
     description: 'SEO-optimized long-form article demonstrating keyword structuring, engaging storytelling, and high retention blog formatting.',
     image: 'https://picsum.photos/seed/seo-growth/800/600?blur=2',
@@ -129,7 +129,7 @@ const portfolioItems: PortfolioItem[] = [
     description: 'Three-email sequence demonstrating storytelling email marketing, value-driven messaging, and CTA-based conversion writing.',
     image: 'https://picsum.photos/seed/email/800/600?blur=2',
     tags: ['Email Marketing', 'Storytelling', 'Sequence'],
-    content: 'Email 1: The Hook & Story - Capturing attention and building relatability.\n\nEmail 2: The Value Pivot - Transitioning from story to actionable advice.\n\nEmail 3: The Soft Pitch - Naturally introducing the offer with a strong, clear CTA.'
+    content: 'Email 1: The Hook & Story: Capturing attention and building relatability.\n\nEmail 2: The Value Pivot: Transitioning from story to actionable advice.\n\nEmail 3: The Soft Pitch: Naturally introducing the offer with a strong, clear CTA.'
   },
   {
     id: 'copy-3',

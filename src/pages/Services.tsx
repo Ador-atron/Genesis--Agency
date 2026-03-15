@@ -39,7 +39,7 @@ export function Services() {
             <h2>Website Design & Development That Converts</h2>
             <div className="text-primary-lighter text-lg leading-relaxed flex flex-col gap-4">
               <p>
-                Your website is your most important salesperson — it works 24/7, never takes a break, and is often the very first impression a potential customer has of your business. At Genesis, we design and develop websites that don't just look modern — they're strategically built to guide visitors toward taking action.
+                Your website is your most important salesperson. It works 24/7, never takes a break, and is often the very first impression a potential customer has of your business. At Genesis, we design and develop websites that don't just look modern, they're strategically built to guide visitors toward taking action.
               </p>
               <p>
                 Every website we create is mobile-responsive, lightning-fast, SEO-optimized, and designed around your specific business goals. Whether you need a complete website build or a redesign of your existing site, we deliver a digital experience that reflects the quality of your brand.
@@ -118,10 +118,10 @@ export function Services() {
             <h2>Copywriting That Speaks to Your Customers and Sells for You</h2>
             <div className="text-secondary-muted text-lg leading-relaxed flex flex-col gap-4">
               <p>
-                A beautiful website or campaign with weak messaging is like a luxury store with no staff — people walk in, look around, and leave without buying. At Genesis, we write every word with strategic intent, whether it's for your website, blog, or email list.
+                A beautiful website or campaign with weak messaging is like a luxury store with no staff. People walk in, look around, and leave without buying. At Genesis, we write every word with strategic intent, whether it's for your website, blog, or email list.
               </p>
               <p>
-                Our copywriting process starts with understanding your customer — what they need, what they fear, and what motivates them to take action. Then we craft messaging that connects emotionally, communicates your value clearly, and guides readers toward your call-to-action with confidence.
+                Our copywriting process starts with understanding your customer, what they need, what they fear, and what motivates them to take action. Then we craft messaging that connects emotionally, communicates your value clearly, and guides readers toward your call-to-action with confidence.
               </p>
             </div>
 

@@ -102,15 +102,15 @@ export function Home() {
             <h2 className="text-white">Your Online Presence Is Costing You Customers</h2>
             
             <p className="text-secondary-muted text-lg leading-relaxed">
-              Most businesses in East Africa are losing potential customers every single day — not because their services are bad, but because their digital presence doesn't do them justice. We see it constantly:
+              Most businesses in East Africa are losing potential customers every single day, not because their services are bad, but because their digital presence doesn't do them justice. We see it constantly:
             </p>
 
             <div className="flex flex-col gap-6 mt-4">
               {[
                 {
                   icon: "🚫",
-                  title: "No Website — Or an Outdated One",
-                  desc: "Your competitors are online. Your customers are searching online. But your business? Invisible. An outdated website is worse than no website — it actively damages trust."
+                  title: "No Website or an Outdated One",
+                  desc: "Your competitors are online. Your customers are searching online. But your business? Invisible. An outdated website is worse than no website because it actively damages trust."
                 },
                 {
                   icon: "👻",
@@ -189,7 +189,7 @@ export function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 w-full">
             {[
               { num: "01", title: "Discover", desc: "We audit your current online presence, understand your business goals, and identify exactly what's holding you back." },
-              { num: "02", title: "Strategize", desc: "We craft a tailored digital strategy — from website architecture and SEO keywords to messaging frameworks." },
+              { num: "02", title: "Strategize", desc: "We craft a tailored digital strategy from website architecture and SEO keywords to messaging frameworks." },
               { num: "03", title: "Build", desc: "Our team designs and develops your website with clean code, persuasive copy, and conversion-optimized layouts." },
               { num: "04", title: "Grow", desc: "We track performance, refine your content, and help you scale your digital presence for long-term growth." }
             ].map((step, i) => (
@@ -293,13 +293,13 @@ export function Home() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col items-center text-center gap-6 mb-16">
             <span className="text-primary-lighter text-xs font-bold uppercase tracking-[0.15em]">Client Voices</span>
-            <h2 className="text-primary max-w-3xl">Don't Take Our Word for It — Hear From Businesses We've Helped</h2>
+            <h2 className="text-primary max-w-3xl">Don't Take Our Word for It. Hear From Businesses We've Helped</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                quote: "Genesis completely transformed how we appear online. Our new website not only looks incredible — it's actually bringing in new client enquiries every week. We wish we'd found them sooner.",
+                quote: "Genesis completely transformed how we appear online. Our new website not only looks incredible, it's actually bringing in new client enquiries every week. We wish we'd found them sooner.",
                 name: "James K.",
                 title: "Managing Director, BuildRight Construction (Uganda)",
                 img: "https://picsum.photos/seed/client1/100/100"
@@ -411,7 +411,7 @@ export function Home() {
             className="text-white"
           >
             Is Your Website Costing You Customers? <br className="hidden md:block" />
-            <span className="text-gradient-silver">Find Out in 48 Hours — Free.</span>
+            <span className="text-gradient-silver">Find Out in 48 Hours for Free.</span>
           </motion.h2>
           
           <p className="text-secondary-muted text-lg leading-relaxed">
