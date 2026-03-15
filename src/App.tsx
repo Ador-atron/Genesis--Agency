@@ -11,10 +11,12 @@ import { Portfolio } from './pages/Portfolio';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { FreeAudit } from './pages/FreeAudit';
+import { ScrollToTop } from './components/ScrollToTop';
 
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
