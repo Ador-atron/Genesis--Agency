@@ -1,22 +1,60 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mail, Phone, MapPin, Clock, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ChevronDown, CheckCircle2, Instagram, Linkedin, Facebook } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
+
+const TikTokIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+  </svg>
+);
+
+const socialLinks = [
+  { icon: Linkedin, href: "https://www.linkedin.com/in/genesis-agency-36698a3b7/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BMbjQ0xnFTDSCdMc0OKvxuQ%3D%3D", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/hello.genesis.agency?igsh=cWZzcXZucHIwb2Nz", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/share/1Ag2hwZTsW/", label: "Facebook" },
+  { icon: TikTokIcon, href: "https://www.tiktok.com/@hello.gensis.agency?_r=1&_t=ZS-94jfdXfBA2P", label: "TikTok" }
+];
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    setTimeout(() => {
+    
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') || '';
+    
+    formData.append("access_key", "3cac6cf1-1616-4503-82b1-5fd07653429c");
+    formData.append("subject", `New Enquiry from ${name}`);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        setTimeout(() => setIsSuccess(false), 3000);
+        (e.target as HTMLFormElement).reset();
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      setTimeout(() => setIsSuccess(false), 3000);
-    }, 1500);
+    }
   };
 
   const faqs = [
@@ -71,28 +109,28 @@ export function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="text-sm font-medium text-secondary-muted">Full Name *</label>
-                  <input type="text" id="name" required placeholder="Your full name" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="text" id="name" name="name" required placeholder="Your full name" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <label htmlFor="email" className="text-sm font-medium text-secondary-muted">Email Address *</label>
-                  <input type="email" id="email" required placeholder="your@email.com" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="email" id="email" name="email" required placeholder="your@email.com" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="phone" className="text-sm font-medium text-secondary-muted">Phone / WhatsApp</label>
-                  <input type="tel" id="phone" placeholder="+256 XXX XXX XXX" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="tel" id="phone" name="phone" placeholder="+256 XXX XXX XXX" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <label htmlFor="company" className="text-sm font-medium text-secondary-muted">Business Name</label>
-                  <input type="text" id="company" placeholder="Your company name" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="text" id="company" name="company" placeholder="Your company name" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
               </div>
 
               <div className="flex flex-col gap-2">
                 <label htmlFor="service" className="text-sm font-medium text-secondary-muted">Service Interested In</label>
-                <select id="service" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all appearance-none">
+                <select id="service" name="service" className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all appearance-none">
                   <option value="">Select a service...</option>
                   <option value="web">Website Design & Development</option>
                   <option value="copy">Copywriting</option>
@@ -105,7 +143,7 @@ export function Contact() {
 
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="text-sm font-medium text-secondary-muted">Your Message *</label>
-                <textarea id="message" required rows={5} placeholder="Tell us about your project, goals, and any challenges you're facing..." className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none" />
+                <textarea id="message" name="message" required rows={5} placeholder="Tell us about your project, goals, and any challenges you're facing..." className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none" />
               </div>
 
               <button
@@ -146,7 +184,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="text-white text-lg mb-1">Email Us</h4>
-                  <a href="mailto:hello@genesis.agency" className="text-accent hover:text-white transition-colors">hello@genesis.agency</a>
+                  <a href="mailto:hello.genesis.agency@gmail.com" className="text-accent hover:text-white transition-colors">hello.genesis.agency@gmail.com</a>
                 </div>
               </div>
 
@@ -188,6 +226,32 @@ export function Contact() {
                 <div>
                   <h4 className="text-white text-lg mb-1">Response Time</h4>
                   <p className="text-secondary-muted">We respond to all enquiries within 24 hours during business days.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter flex items-center justify-center shrink-0">
+                  <span className="text-accent text-xl">✨</span>
+                </div>
+                <div>
+                  <h4 className="text-white text-lg mb-2">Follow Us</h4>
+                  <div className="flex items-center gap-3">
+                    {socialLinks.map((social, i) => {
+                      const Icon = social.icon;
+                      return (
+                        <a
+                          key={i}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={social.label}
+                          className="text-secondary-muted hover:text-white hover:scale-110 transition-all duration-300 p-2 rounded-full border border-primary-lighter hover:border-accent bg-primary-soft/50 backdrop-blur-sm"
+                        >
+                          <Icon size={18} />
+                        </a>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>

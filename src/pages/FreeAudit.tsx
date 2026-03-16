@@ -7,14 +7,34 @@ export function FreeAudit() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') || '';
+    
+    formData.append("access_key", "3cac6cf1-1616-4503-82b1-5fd07653429c");
+    formData.append("subject", `Free Website Audit Request from ${name}`);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        setTimeout(() => setIsSuccess(false), 3000);
+        (e.target as HTMLFormElement).reset();
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      setTimeout(() => setIsSuccess(false), 3000);
-    }, 1500);
+    }
   };
 
   return (
@@ -125,22 +145,22 @@ export function FreeAudit() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="text-sm font-medium text-secondary-muted">Full Name *</label>
-                  <input type="text" id="name" required placeholder="Your full name" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="text" id="name" name="name" required placeholder="Your full name" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
                 
                 <div className="flex flex-col gap-2">
                   <label htmlFor="email" className="text-sm font-medium text-secondary-muted">Email Address *</label>
-                  <input type="email" id="email" required placeholder="your@email.com" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="email" id="email" name="email" required placeholder="your@email.com" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label htmlFor="website" className="text-sm font-medium text-secondary-muted">Website URL *</label>
-                  <input type="url" id="website" required placeholder="https://yourwebsite.com" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
+                  <input type="url" id="website" name="website" required placeholder="https://yourwebsite.com" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all" />
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label htmlFor="challenge" className="text-sm font-medium text-secondary-muted">Biggest Challenge</label>
-                  <select id="challenge" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all appearance-none">
+                  <select id="challenge" name="challenge" className="bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all appearance-none">
                     <option value="">My main challenge is...</option>
                     <option value="no-website">No website yet</option>
                     <option value="outdated">Outdated design</option>

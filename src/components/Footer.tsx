@@ -1,5 +1,24 @@
 import { Link } from 'react-router-dom';
-import { Twitter, Instagram, Linkedin, Dribbble } from 'lucide-react';
+import { Instagram, Linkedin, Facebook } from 'lucide-react';
+
+const TikTokIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+  </svg>
+);
+
+const socialLinks = [
+  { icon: Linkedin, href: "https://www.linkedin.com/in/genesis-agency-36698a3b7/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BMbjQ0xnFTDSCdMc0OKvxuQ%3D%3D" },
+  { icon: Instagram, href: "https://www.instagram.com/hello.genesis.agency?igsh=cWZzcXZucHIwb2Nz" },
+  { icon: Facebook, href: "https://www.facebook.com/share/1Ag2hwZTsW/" },
+  { icon: TikTokIcon, href: "https://www.tiktok.com/@hello.gensis.agency?_r=1&_t=ZS-94jfdXfBA2P" }
+];
 
 export function Footer() {
   return (
@@ -20,15 +39,20 @@ export function Footer() {
             We build websites that convert, write copy that sells, and optimize your presence to dominate search results.
           </p>
           <div className="flex items-center gap-4 mt-2">
-            {[Linkedin, Twitter, Instagram, Dribbble].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="text-accent hover:text-white hover:scale-110 hover:shadow-silver-glow transition-all duration-300 p-2 rounded-full border border-primary-lighter hover:border-accent"
-              >
-                <Icon size={18} />
-              </a>
-            ))}
+            {socialLinks.map((social, i) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:text-white hover:scale-110 hover:shadow-silver-glow transition-all duration-300 p-2 rounded-full border border-primary-lighter hover:border-accent"
+                >
+                  <Icon size={18} />
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -74,8 +98,8 @@ export function Footer() {
         <div className="flex flex-col gap-6">
           <h4 className="text-accent uppercase text-xs tracking-[0.15em] font-semibold">Get In Touch</h4>
           <div className="flex flex-col gap-4 text-sm">
-            <a href="mailto:hello@genesis.agency" className="text-accent hover:text-white transition-colors">
-              hello@genesis.agency
+            <a href="mailto:hello.genesis.agency@gmail.com" className="text-accent hover:text-white transition-colors">
+              hello.genesis.agency@gmail.com
             </a>
             <a href="https://wa.me/256000000000" className="text-secondary-muted hover:text-white transition-colors">
               +256 XXX XXX XXX
