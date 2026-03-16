@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
@@ -42,13 +41,7 @@ export function Layout() {
             transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
             className="flex-grow pt-[88px]"
           >
-            <Suspense fallback={
-              <div className="min-h-[50vh] flex items-center justify-center">
-                <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
-              </div>
-            }>
-              <Outlet />
-            </Suspense>
+            <Outlet />
           </motion.main>
         </AnimatePresence>
 

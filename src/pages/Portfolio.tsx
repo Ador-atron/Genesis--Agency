@@ -170,7 +170,8 @@ export function Portfolio() {
           <span className="text-accent text-xs font-bold uppercase tracking-[0.15em]">Our Work</span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="text-white"
           >
@@ -179,7 +180,8 @@ export function Portfolio() {
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-secondary-muted text-lg md:text-xl max-w-2xl leading-relaxed"
           >
@@ -196,7 +198,8 @@ export function Portfolio() {
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 className="flex flex-col gap-2"
               >
@@ -235,21 +238,15 @@ export function Portfolio() {
       {/* Portfolio Grid */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <AnimatePresence>
               {filteredItems.map((item, index) => (
                 <motion.div
+                  layout
                   key={item.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.4 }}
                   onClick={() => setSelectedProject(item)}
                   className="group relative rounded-2xl overflow-hidden bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter aspect-[4/3] cursor-pointer hover:-translate-y-2 hover:shadow-2xl transition-all duration-500"
                 >
@@ -281,8 +278,8 @@ export function Portfolio() {
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
-          </AnimatePresence>
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
