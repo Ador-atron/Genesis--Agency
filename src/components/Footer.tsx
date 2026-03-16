@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram, Linkedin, Facebook } from 'lucide-react';
+import { Instagram, Linkedin, Facebook, Mail } from 'lucide-react';
 
 const TikTokIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
   <svg
@@ -14,6 +14,7 @@ const TikTokIcon = ({ size = 24, className = "" }: { size?: number, className?: 
 );
 
 const socialLinks = [
+  { icon: Mail, href: "mailto:hello.genesis.agency@gmail.com" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/genesis-agency-36698a3b7/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BMbjQ0xnFTDSCdMc0OKvxuQ%3D%3D" },
   { icon: Instagram, href: "https://www.instagram.com/hello.genesis.agency?igsh=cWZzcXZucHIwb2Nz" },
   { icon: Facebook, href: "https://www.facebook.com/share/1Ag2hwZTsW/" },
@@ -101,8 +102,8 @@ export function Footer() {
             <a href="mailto:hello.genesis.agency@gmail.com" className="text-accent hover:text-white transition-colors">
               hello.genesis.agency@gmail.com
             </a>
-            <a href="https://wa.me/256000000000" className="text-secondary-muted hover:text-white transition-colors">
-              +256 XXX XXX XXX
+            <a href="https://wa.me/256782876841" className="text-secondary-muted hover:text-white transition-colors">
+              +256 782 876 841
             </a>
             <p className="text-secondary-muted/80 leading-relaxed mt-2">
               🇺🇬 Uganda · 🇰🇪 Kenya<br />

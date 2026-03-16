@@ -59,10 +59,10 @@ export function About() {
           
           <div className="relative h-[500px] lg:h-[700px] rounded-2xl overflow-hidden bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter shadow-2xl">
             <img
-              src="https://picsum.photos/seed/teamwork/800/1000?blur=1"
-              alt="Team collaboration"
+              src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?auto=format&fit=crop&w=800&q=80"
+              alt="Abstract digital network technology background"
               referrerPolicy="no-referrer"
-              className="w-full h-full object-cover grayscale opacity-80"
+              className="w-full h-full object-cover opacity-80"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
           </div>

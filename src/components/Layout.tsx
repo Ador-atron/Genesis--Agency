@@ -49,7 +49,7 @@ export function Layout() {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/256000000000?text=Hi%20Genesis%2C%20I%27d%20like%20to%20discuss%20a%20project"
+        href="https://wa.me/256782876841?text=Hi%20Genesis%2C%20I%27d%20like%20to%20discuss%20a%20project"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 animate-bounce"

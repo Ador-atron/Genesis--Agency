@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, ChevronDown, MonitorSmartphone, PenTool, Search, FileText } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronDown, Laptop, Palette, TrendingUp, Diamond, Bot, Settings } from 'lucide-react';
 
 export function Home() {
   return (
@@ -224,31 +224,43 @@ export function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: MonitorSmartphone,
-                title: "Website Design & Development",
-                desc: "Professional, mobile-responsive websites built for speed, clarity, and conversion. We create digital experiences that make your business look as good online as it performs offline.",
-                tags: ["Responsive Design", "Fast Loading", "Custom UI", "CMS Integration"]
+                icon: Laptop,
+                title: "Website Development",
+                desc: "Professional, fast, and scalable websites built for performance and conversion. We create digital experiences that make your business look as good online as it performs offline.",
+                tags: ["Responsive Design", "Fast Loading", "Custom Code", "CMS Integration"]
               },
               {
-                icon: PenTool,
-                title: "Copywriting",
-                desc: "Words that work. We write persuasive website copy, engaging blogs, informative articles, and compelling email campaigns that guide your audience toward becoming customers.",
-                tags: ["Website Copy", "Blogs & Articles", "Email Campaigns", "Brand Voice"]
+                icon: Palette,
+                title: "UI / UX Design",
+                desc: "Beautiful, intuitive interfaces designed with the user in mind. We craft digital experiences that are not only visually stunning but also incredibly easy to navigate.",
+                tags: ["User Research", "Wireframing", "Prototyping", "Visual Design"]
               },
               {
-                icon: Search,
-                title: "Local SEO Optimization",
-                desc: "Get found by the customers already searching for your services. We optimize your website and Google Business profile to dominate local search results across East Africa.",
-                tags: ["Google Business", "On-Page SEO", "Keyword Research", "Local Citations"]
+                icon: TrendingUp,
+                title: "Digital Marketing",
+                desc: "Data-driven marketing strategies that get you found by the right audience. We optimize your campaigns to dominate search results and drive measurable growth.",
+                tags: ["SEO", "Paid Ads", "Social Media", "Analytics"]
               },
               {
-                icon: FileText,
-                title: "Content Strategy",
-                desc: "Build authority and trust through strategic content. We plan and create educational content that positions your brand as the go-to expert in your industry.",
-                tags: ["Content Planning", "Blog Strategy", "Brand Authority", "Educational Content"]
+                icon: Diamond,
+                title: "Branding",
+                desc: "Build a memorable identity that stands out. We develop cohesive brand strategies, visual identities, and messaging that resonate deeply with your target audience.",
+                tags: ["Brand Identity", "Logo Design", "Brand Voice", "Guidelines"]
+              },
+              {
+                icon: Bot,
+                title: "Automation / AI",
+                desc: "Streamline your operations with cutting-edge AI and automation. We implement smart tools that save you time, reduce errors, and scale your business effortlessly.",
+                tags: ["Workflow Automation", "AI Integration", "Chatbots", "Efficiency"]
+              },
+              {
+                icon: Settings,
+                title: "Business Systems",
+                desc: "Robust digital infrastructure to support your growth. We set up and integrate the tools, CRMs, and platforms your team needs to operate at peak performance.",
+                tags: ["CRM Setup", "Tool Integration", "Process Mapping", "Scalability"]
               }
             ].map((service, i) => (
               <motion.div
