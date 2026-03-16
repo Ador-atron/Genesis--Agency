@@ -61,6 +61,7 @@ export function About() {
             <img
               src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?auto=format&fit=crop&w=800&q=80"
               alt="Abstract digital network technology background"
+              loading="lazy"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover opacity-80"
             />

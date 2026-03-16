@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
@@ -20,6 +21,7 @@ export function Layout() {
           loop
           muted
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-[125%] object-cover opacity-100"
           src="https://github.com/Ador-atron/Project-Files-/raw/9620b31c9503650f6a6928087661fef7337a4503/background.mp4.mp4"
         />
@@ -40,7 +42,13 @@ export function Layout() {
             transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
             className="flex-grow pt-[88px]"
           >
-            <Outlet />
+            <Suspense fallback={
+              <div className="min-h-[50vh] flex items-center justify-center">
+                <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+              </div>
+            }>
+              <Outlet />
+            </Suspense>
           </motion.main>
         </AnimatePresence>
 

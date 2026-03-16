@@ -256,6 +256,7 @@ export function Portfolio() {
                   <img
                     src={item.image}
                     alt={item.title}
+                    loading="lazy"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
                   />
@@ -304,7 +305,7 @@ export function Portfolio() {
             >
               {/* Modal Header Image */}
               <div className="relative h-48 md:h-64 w-full overflow-hidden shrink-0">
-                <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+                <img src={selectedProject.image} alt={selectedProject.title} loading="lazy" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-soft to-transparent" />
                 <button
                   onClick={() => setSelectedProject(null)}

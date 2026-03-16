@@ -92,8 +92,8 @@ export function Home() {
 
       {/* Problem Section */}
       <section className="py-24 md:py-32 bg-gradient-to-b from-primary/50 to-primary-soft/50 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="flex flex-col gap-8">
+        <div className="max-w-4xl mx-auto flex flex-col gap-16 items-center">
+          <div className="flex flex-col gap-8 w-full">
             <div className="flex items-center gap-4">
               <div className="w-10 h-px bg-accent" />
               <span className="text-accent text-xs font-bold uppercase tracking-[0.15em]">The Problem</span>
@@ -142,32 +142,6 @@ export function Home() {
               ))}
             </div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative h-[500px] lg:h-full min-h-[500px] rounded-2xl overflow-hidden border border-primary-lighter bg-primary-soft/50 backdrop-blur-sm shadow-2xl group"
-          >
-            {/* Abstract visual representation */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-soft to-primary-lighter opacity-80" />
-            <div className="absolute inset-0 flex items-center justify-center p-8">
-              <div className="w-full max-w-md bg-primary/50 backdrop-blur-sm border border-primary-lighter rounded-lg shadow-2xl overflow-hidden transform group-hover:rotate-0 rotate-2 transition-transform duration-700">
-                <div className="h-8 border-b border-primary-lighter bg-primary-soft/50 backdrop-blur-sm flex items-center px-4 gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/50" />
-                </div>
-                <div className="p-8 flex flex-col gap-4 opacity-50 grayscale">
-                  <div className="w-3/4 h-8 bg-primary-lighter rounded animate-pulse" />
-                  <div className="w-full h-4 bg-primary-lighter rounded animate-pulse delay-75" />
-                  <div className="w-5/6 h-4 bg-primary-lighter rounded animate-pulse delay-150" />
-                  <div className="w-full h-32 bg-primary-lighter rounded mt-4 animate-pulse delay-300" />
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -313,20 +287,17 @@ export function Home() {
               {
                 quote: "Genesis completely transformed how we appear online. Our new website not only looks incredible, it's actually bringing in new client enquiries every week. We wish we'd found them sooner.",
                 name: "James K.",
-                title: "Managing Director, BuildRight Construction (Uganda)",
-                img: "https://picsum.photos/seed/client1/100/100"
+                title: "Managing Director, BuildRight Construction (Uganda)"
               },
               {
                 quote: "The team understood our business better than any other agency we've worked with. The copy they wrote speaks directly to our patients. Our Google visibility has skyrocketed.",
                 name: "Dr. Sarah M.",
-                title: "Founder, GreenLeaf Clinic (Kenya)",
-                img: "https://picsum.photos/seed/client2/100/100"
+                title: "Founder, GreenLeaf Clinic (Kenya)"
               },
               {
                 quote: "Professional, strategic, and genuinely invested in our results. Genesis delivered a website that positions us as the premium brand we are. The ROI has been exceptional.",
                 name: "David O.",
-                title: "CEO, Horizon Real Estate (Rwanda)",
-                img: "https://picsum.photos/seed/client3/100/100"
+                title: "CEO, Horizon Real Estate (Rwanda)"
               }
             ].map((testimonial, i) => (
               <motion.div
@@ -343,7 +314,9 @@ export function Home() {
                 </p>
                 <div className="w-10 h-px bg-accent mb-6" />
                 <div className="flex items-center gap-4">
-                  <img src={testimonial.img} alt={testimonial.name} className="w-12 h-12 rounded-full border-2 border-accent/20 object-cover" />
+                  <div className="w-12 h-12 rounded-full border-2 border-accent/20 bg-primary-soft flex items-center justify-center text-accent font-bold text-lg">
+                    {testimonial.name.charAt(0)}
+                  </div>
                   <div>
                     <h4 className="text-primary font-bold text-sm">{testimonial.name}</h4>
                     <p className="text-primary-lighter text-xs">{testimonial.title}</p>
