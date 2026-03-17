@@ -238,18 +238,19 @@ export function Portfolio() {
       {/* Portfolio Grid */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <AnimatePresence>
-              {filteredItems.map((item, index) => (
-                <motion.div
-                  layout
-                  key={item.id}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.4 }}
-                  onClick={() => setSelectedProject(item)}
-                  className="group relative rounded-2xl overflow-hidden bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter aspect-[4/3] cursor-pointer hover:-translate-y-2 hover:shadow-2xl transition-all duration-500"
-                >
+          <motion.div 
+            key={activeCategory}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {filteredItems.map((item, index) => (
+              <div
+                key={item.id}
+                onClick={() => setSelectedProject(item)}
+                className="group relative rounded-2xl overflow-hidden bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter aspect-[4/3] cursor-pointer hover:-translate-y-2 hover:shadow-2xl transition-all duration-500"
+              >
                   <img
                     src={item.image}
                     alt={item.title}
@@ -276,9 +277,8 @@ export function Portfolio() {
                       )}
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
