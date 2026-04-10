@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const navLinks = [
-  { name: 'Home', path: '/' },
+  { name: 'Work', path: '/portfolio' },
   { name: 'Services', path: '/services' },
-  { name: 'Portfolio', path: '/portfolio' },
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ];
@@ -16,101 +16,95 @@ export function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    setIsMobileOpen(false);
-  }, [location.pathname]);
+  useEffect(() => setIsMobileOpen(false), [location.pathname]);
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'nav-glass border-b border-white/[0.08] py-3'
-            : 'bg-transparent py-5'
-        }`}
+      <motion.header
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        style={{
+          background: isScrolled ? 'rgba(0,0,0,0.80)' : 'rgba(0,0,0,0.00)',
+          backdropFilter: isScrolled ? 'saturate(180%) blur(20px)' : 'none',
+          WebkitBackdropFilter: isScrolled ? 'saturate(180%) blur(20px)' : 'none',
+          borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+        }}
       >
-        <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
-          {/* Logo */}
-          <Link
-            to="/"
-            className="text-lg font-semibold tracking-tight text-white focus-ring rounded"
-          >
-            Genesis<span className="text-[var(--color-accent)]">.</span>
+        <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+          <Link to="/" className="text-[21px] font-semibold tracking-[-0.02em] text-white">
+            Genesis<span className="text-[#86868b]">.</span>
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={`text-xs font-medium tracking-widest uppercase transition-colors duration-200 focus-ring rounded ${
-                    isActive
-                      ? 'text-white'
-                      : 'text-[rgba(255,255,255,0.72)] hover:text-white'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className="text-[12px] font-medium uppercase tracking-[0.12em] text-white/70 hover:text-white transition-colors duration-300 relative group"
+              >
+                {link.name}
+                <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-white group-hover:w-full transition-all duration-300" />
+              </Link>
+            ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:block">
-            <Link
-              to="/free-audit"
-              className="btn-primary text-sm focus-ring"
-            >
-              Get Free Audit
-            </Link>
-          </div>
+          <Link
+            to="/contact"
+            className="hidden md:inline-block text-[12px] font-medium uppercase tracking-[0.12em] text-black bg-[#0071e3] px-4 py-1.5 rounded-full hover:bg-[#0071e3]/90 transition-colors"
+          >
+            Get Started
+          </Link>
 
-          {/* Mobile Toggle */}
           <button
-            className="md:hidden text-white p-2 -mr-2 focus-ring rounded"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
+            className="md:hidden text-white p-2 -mr-2"
             aria-label="Toggle menu"
           >
             {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
-      </header>
+      </motion.header>
 
       {/* Mobile Menu */}
-      {isMobileOpen && (
-        <div className="fixed inset-0 z-40 bg-black pt-20 flex flex-col items-center justify-center gap-8 md:hidden">
-          {navLinks.map((link) => {
-            const isActive = location.pathname === link.path;
-            return (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`text-3xl font-semibold tracking-tight ${
-                  isActive ? 'text-[var(--color-accent)]' : 'text-white'
-                }`}
-                onClick={() => setIsMobileOpen(false)}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-          <Link
-            to="/free-audit"
-            className="btn-primary mt-4"
-            onClick={() => setIsMobileOpen(false)}
+      <AnimatePresence>
+        {isMobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-black/95 flex flex-col items-center justify-center gap-8 md:hidden"
           >
-            Get Free Audit
-          </Link>
-        </div>
-      )}
+            {navLinks.map((link, i) => (
+              <motion.div
+                key={link.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+              >
+                <Link
+                  to={link.path}
+                  className="text-[28px] font-semibold tracking-[-0.02em] text-white"
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
+            ))}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: navLinks.length * 0.08 }}>
+              <Link to="/contact" className="px-6 py-3 bg-[#0071e3] text-white text-[17px] rounded-[980px]">
+                Get Started
+              </Link>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
