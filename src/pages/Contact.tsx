@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView } from 'motion/react';
 
 const faqs = [
   { q: 'How long does a typical project take?', a: 'Most business websites take 2–4 weeks from strategy to launch. Complex projects or full brand builds may take longer—we\'ll give you a clear timeline during our first conversation.' },

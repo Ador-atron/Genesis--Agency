@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView } from 'motion/react';
 import { CheckCircle2 } from 'lucide-react';
 
 const services = [
