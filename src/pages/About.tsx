@@ -1,148 +1,45 @@
-import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Target, Eye, Shield, ArrowRight } from 'lucide-react';
 
 export function About() {
   return (
-    <div className="flex flex-col min-h-screen relative">
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden px-6 py-20 border-b border-primary-lighter">
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-accent rounded-full animate-ping" />
-          <div className="absolute top-3/4 right-1/4 w-1.5 h-1.5 bg-accent rounded-full animate-pulse delay-700" />
-          <div className="absolute top-1/2 left-3/4 w-2.5 h-2.5 bg-accent rounded-full animate-bounce delay-1000" />
-        </div>
-        
-        <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
-          <span className="text-accent text-xs font-bold uppercase tracking-[0.15em]">About Us</span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white"
-          >
-            We're Not Just Another Agency. <br className="hidden md:block" />
-            <span className="text-gradient-silver">We're Your Digital Growth Partner.</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-secondary-muted text-lg md:text-xl max-w-2xl leading-relaxed"
-          >
-            Genesis was founded with a simple but powerful belief: every business deserves a digital presence that actually works. Not just looks, but works.
-          </motion.p>
+    <div className="bg-black text-white min-h-screen">
+      <section className="min-h-[80vh] flex items-center px-6 md:px-12 py-24 border-b border-white/10">
+        <div className="max-w-5xl">
+          <p className="text-xs uppercase tracking-[0.35em] text-white/60">About</p>
+          <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">A small team with a precise, intentional approach to digital growth.</h1>
+          <p className="mt-6 text-lg text-white/70 max-w-3xl leading-relaxed">Genesis was built on a single belief: that most agencies confuse activity with progress. We do fewer things. We do them at a premium level. And we measure everything.</p>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-24 md:py-32 bg-secondary/80 backdrop-blur-md text-primary px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="flex flex-col gap-8">
-            <span className="text-primary-lighter text-xs font-bold uppercase tracking-[0.15em]">Our Story</span>
-            <h2>Born From Frustration With the Status Quo</h2>
-            <div className="text-primary-lighter text-lg leading-relaxed flex flex-col gap-6">
-              <p>
-                Genesis started because we saw the same problem playing out across East Africa: talented businesses with incredible services but terrible online presences. Construction companies with decade-long track records but no website. Restaurants with award-worthy food but invisible on Google. Clinics saving lives but losing patients to competitors with better marketing.
-              </p>
-              <p>
-                We're a small, focused team of professionals who came together with complementary skills in website development, copywriting, SEO management, and content creation. We don't do everything. We do the things that matter most for your online growth, and we do them exceptionally well.
-              </p>
-              <p>
-                Currently operating across Uganda, Kenya, South Sudan, and Rwanda, we've built Genesis as a distributed agency by design. While our roots are in East Africa, our digital expertise knows no borders, and we proudly partner with forward-thinking businesses worldwide.
-              </p>
-              <p className="font-semibold text-primary">
-                Our approach is simple: understand your business deeply, build a strategy based on data and experience, execute with precision, and measure everything. No vanity metrics. No empty promises. Just measurable growth.
-              </p>
-            </div>
-          </div>
-          
-          <div className="relative h-[500px] lg:h-[700px] rounded-2xl overflow-hidden bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter shadow-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?auto=format&fit=crop&w=800&q=80"
-              alt="Abstract digital network technology background"
-              loading="lazy"
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover opacity-80"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
+      <section className="py-20 px-6 md:px-12 bg-[#f5f5f7] text-black border-b border-black/10">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-xs uppercase tracking-[0.35em] text-black/40">Origin</p>
+          <h2 className="mt-4 text-3xl font-semibold max-w-3xl leading-tight">Born from frustration with agencies that deliver mediocrity dressed as strategy.</h2>
+          <div className="mt-12 space-y-8 text-lg text-black/70 leading-relaxed max-w-3xl">
+            <p>We watched talented businesses across East Africa get stuck with websites that looked like 2015, copy that nobody read, and "SEO strategies" that amounted to stuffing keywords into blog posts nobody visited.</p>
+            <p>Genesis was our answer. A focused team of specialists in design, development, and content—working directly with clients, no account managers, no overhead, no fluff. We operate across Uganda, Kenya, South Sudan, and Rwanda, with the flexibility to work globally.</p>
+            <p>Our process is simple: understand the business deeply, define what premium looks like for that specific client, build with intention, and measure outcomes—not outputs.</p>
           </div>
         </div>
       </section>
 
-      {/* Mission, Vision, Values */}
-      <section className="py-24 md:py-32 bg-transparent px-6 border-y border-primary-lighter">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              icon: Target,
-              title: "Our Mission",
-              desc: "Help businesses across East Africa transform their online presence into a reliable, measurable customer-generating system."
-            },
-            {
-              icon: Eye,
-              title: "Our Vision",
-              desc: "Become the most trusted digital growth partner for ambitious businesses in East Africa, known for strategy, execution, and results."
-            },
-            {
-              icon: Shield,
-              title: "Our Values",
-              desc: (
-                <ul className="flex flex-col gap-3">
-                  <li><strong className="text-white">Strategy First:</strong> We think before we build.</li>
-                  <li><strong className="text-white">Results Obsessed:</strong> If it doesn't generate results, we don't do it.</li>
-                  <li><strong className="text-white">Transparent Always:</strong> No jargon, no hidden costs.</li>
-                  <li><strong className="text-white">Growth Mindset:</strong> Always learning, always improving.</li>
-                </ul>
-              )
-            }
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.15, duration: 0.6 }}
-              className="bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter rounded-2xl p-8 hover:border-accent transition-colors duration-300"
-            >
-              <item.icon className="text-accent mb-6" size={40} strokeWidth={1.5} />
-              <h3 className="text-white mb-4">{item.title}</h3>
-              <div className="text-secondary-muted leading-relaxed">{item.desc}</div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* The Team */}
-      <section className="py-24 md:py-32 bg-secondary/80 backdrop-blur-md text-primary px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col items-center text-center gap-6">
-            <span className="text-primary-lighter text-xs font-bold uppercase tracking-[0.15em]">The People Behind Genesis</span>
-            <h2>A Small Team. A Big Impact.</h2>
-            <p className="text-primary-lighter text-lg max-w-2xl leading-relaxed">
-              We're a lean, distributed team of specialists, each an expert in their craft. No account managers, no middlemen. When you work with Genesis, you work directly with the people building your digital presence.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-24 md:py-32 bg-transparent px-6 border-t border-primary-lighter">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-white max-w-3xl mb-16">Why Businesses Choose Genesis Over Other Agencies</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+      <section className="py-20 px-6 md:px-12 border-b border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-xs uppercase tracking-[0.35em] text-white/50">What We Stand For</p>
+          <div className="mt-10 grid gap-px bg-white/10">
             {[
-              { num: "01", title: "Strategy-Driven Design", desc: "We don't start with Figma. We start with strategy. Every design decision is rooted in your business goals and customer behavior." },
-              { num: "02", title: "Conversion-Focused Copywriting", desc: "Your website's words matter as much as its design. We write every headline, description, and CTA to persuade and convert." },
-              { num: "03", title: "SEO-Ready From Day One", desc: "We don't 'add SEO later.' Every website we build is architected for search engine visibility from the very first line of code." },
-              { num: "04", title: "East Africa Market Expertise", desc: "We're not a foreign agency guessing about your market. We live and work in East Africa. We understand your customers because they're our neighbors." }
-            ].map((item, i) => (
-              <div key={i} className="flex gap-6 border-l border-primary-lighter pl-6 hover:border-accent transition-colors duration-300">
-                <div className="text-4xl font-bold text-accent/50 font-mono">{item.num}</div>
-                <div>
-                  <h4 className="text-white mb-3">{item.title}</h4>
-                  <p className="text-secondary-muted leading-relaxed">{item.desc}</p>
+              { title: 'Strategy First', desc: 'Every project starts with understanding. We don\'t open Figma until we know exactly what we\'re building and why.' },
+              { title: 'Premium Without Pretense', desc: 'Premium design isn\'t about price tags. It\'s about intentionality—every element earns its place.' },
+              { title: 'Results Obsessed', desc: 'If a design decision doesn\'t serve a business outcome, it doesn\'t ship. We track what matters.' },
+              { title: 'Transparent Always', desc: 'Real timelines. Real pricing. Real expectations. We don\'t hide behind agency speak.' },
+              { title: 'Built to Last', desc: 'We build for the long term. Code that scales, designs that age gracefully, copy that stays relevant.' }
+            ].map((value) => (
+              <div key={value.title} className="bg-black grid grid-cols-1 md:grid-cols-3">
+                <div className="p-8 md:col-span-1 border-b md:border-b-0 md:border-r border-white/10">
+                  <h3 className="text-xl font-semibold">{value.title}</h3>
+                </div>
+                <div className="p-8 md:col-span-2">
+                  <p className="text-white/60 leading-relaxed">{value.desc}</p>
                 </div>
               </div>
             ))}
@@ -150,16 +47,22 @@ export function About() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 bg-transparent relative overflow-hidden px-6 border-t border-primary-lighter">
-        <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center gap-8">
-          <h2 className="text-white max-w-3xl">Ready to Work With a Team That Actually Cares About Your Results?</h2>
-          <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
-            <Link to="/contact" className="px-10 py-5 bg-gradient-silver text-primary font-bold rounded-full hover:bg-gradient-silver-hover hover:scale-105 hover:shadow-silver-glow transition-all duration-300 text-lg w-full sm:w-auto">
-              Let's Start a Conversation &rarr;
+      <section className="py-20 px-6 md:px-12">
+        <div className="max-w-5xl mx-auto text-center">
+          <h3 className="text-3xl font-semibold">Work with a team that cares about your outcomes as much as you do.</h3>
+          <p className="mt-4 text-white/70 leading-relaxed">We take on a small number of projects each quarter to ensure every client gets the attention they deserve.</p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center bg-[#0071e3] text-white rounded-full px-8 py-3 font-semibold uppercase tracking-[0.35em] text-sm hover:bg-[#0071e3]/90 transition-colors"
+            >
+              Start a Conversation ↗
             </Link>
-            <Link to="/contact" className="px-10 py-5 border border-accent text-white font-bold rounded-full hover:bg-accent hover:text-primary transition-all duration-300 text-lg w-full sm:w-auto">
-              Get a Free Website Audit &rarr;
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center justify-center border border-white/30 rounded-full px-8 py-3 font-semibold uppercase tracking-[0.35em] text-sm hover:border-white transition-colors"
+            >
+              See Our Work
             </Link>
           </div>
         </div>

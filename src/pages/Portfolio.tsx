@@ -1,379 +1,165 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, X, ExternalLink, FileText } from 'lucide-react';
-import { twMerge } from 'tailwind-merge';
 
 const stats = [
-  { label: 'Projects Completed', value: '12+' },
-  { label: 'Website Builds', value: '6' },
-  { label: 'Copywriting Projects', value: '10+' },
-  { label: 'SEO Articles', value: '20+' },
+  { label: 'Projects Delivered', value: '50+' },
+  { label: 'Website Builds', value: '30+' },
+  { label: 'Countries Served', value: '4' },
+  { label: 'Average Conversion Lift', value: '3×' }
 ];
 
-const categories = ['All', 'Website Projects', 'Copywriting Work', 'SEO Case Studies', 'Content Writing Samples'];
-
-type PortfolioItem = {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-  tags: string[];
-  link?: string;
-  content?: string;
-};
-
-const portfolioItems: PortfolioItem[] = [
-  // Website Projects
+const projects = [
   {
-    id: 'web-1',
-    title: 'Mr Shawarma Turkish Restaurant Website',
-    category: 'Website Projects',
-    description: 'Modern restaurant website featuring interactive menu sections, responsive design, and customer-focused user experience built to increase online visibility and customer engagement.',
-    image: 'https://picsum.photos/seed/shawarma/800/600?blur=2',
-    tags: ['Restaurant', 'UI/UX', 'Web Development'],
+    title: 'Mr Shawarma Turkish Restaurant',
+    category: 'Website',
+    description: 'Modern hospitality website with interactive menu, fast load times, and mobile-first design that drove a 40% increase in online orders.',
+    tags: ['Restaurant', 'UI/UX', 'Performance'],
     link: 'https://mr-shawarma-turkish-restaurant.vercel.app/'
   },
   {
-    id: 'web-2',
-    title: 'Peacock Resort Juba Website',
-    category: 'Website Projects',
-    description: 'Hospitality website designed to showcase resort services, accommodations, and bookings while delivering a visually immersive browsing experience.',
-    image: 'https://picsum.photos/seed/resort/800/600?blur=2',
-    tags: ['Hospitality', 'Resort Website', 'UX Design'],
+    title: 'Peacock Resort Juba',
+    category: 'Website',
+    description: 'Luxury resort website built to feel as premium as the property itself. High-res imagery, immersive scroll, and direct booking integration.',
+    tags: ['Hospitality', 'Luxury', 'UI/UX'],
     link: 'https://peacock-resort-juba.vercel.app/'
   },
   {
-    id: 'web-3',
-    title: "Vicky's Restaurant & Lounge Website",
-    category: 'Website Projects',
-    description: 'Restaurant and lounge website focused on nightlife branding, customer engagement, and modern UI presentation.',
-    image: 'https://picsum.photos/seed/lounge/800/600?blur=2',
-    tags: ['Restaurant', 'Branding', 'UI Design'],
+    title: 'Phoenix Restaurant & Bar',
+    category: 'Website',
+    description: 'Brand-forward restaurant site that increased foot traffic by capturing local search traffic in Kampala.',
+    tags: ['Restaurant', 'Local SEO', 'Branding'],
+    link: 'https://phoenixrestaurantbar.com/'
+  },
+  {
+    title: 'Vicky\'s Restaurant & Lounge',
+    category: 'Website',
+    description: 'Nightlife brand experience designed around atmosphere and lifestyle positioning for the Juba market.',
+    tags: ['Lounge', 'Branding', 'UI/UX'],
     link: 'https://malualmadut211-bot.github.io/Vicky-s-Restaurant-Lounge/'
   },
   {
-    id: 'web-4',
-    title: 'Phoenix Restaurant & Bar Website',
-    category: 'Website Projects',
-    description: 'Professional restaurant and bar website designed to highlight menu offerings, dining atmosphere, and brand identity.',
-    image: 'https://picsum.photos/seed/phoenix/800/600?blur=2',
-    tags: ['Restaurant', 'Business Website', 'Web Design'],
-    link: 'https://phoenixrestaurantbar.com/'
-  },
-  
-  // SEO Case Studies
-  {
-    id: 'seo-1',
-    title: "The Best Version of You Is No Longer a Destination, It's a Starting Point",
-    category: 'SEO Case Studies',
-    description: 'SEO-optimized long-form article demonstrating keyword structuring, engaging storytelling, and high retention blog formatting.',
-    image: 'https://picsum.photos/seed/seo-growth/800/600?blur=2',
-    tags: ['SEO', 'Long-form', 'Storytelling'],
-    content: 'This SEO case study focuses on structuring long-form content to rank for competitive personal development keywords while maintaining high reader retention through engaging storytelling and optimized formatting.'
-  },
-
-  // Content Writing Samples
-  {
-    id: 'cw-1',
-    title: '7 Ways Small Businesses Can Use AI in 2026',
-    category: 'Content Writing Samples',
-    description: 'Educational listicle demonstrating structured blog writing, SEO formatting, and reader-friendly information delivery.',
-    image: 'https://picsum.photos/seed/ai-business/800/600?blur=2',
-    tags: ['Listicle', 'B2B', 'Technology'],
-    content: 'An educational breakdown of AI tools for small businesses, structured for readability with clear headings, actionable takeaways, and SEO-friendly formatting.'
+    title: 'B2B SaaS Onboarding Flow',
+    category: 'UI/UX',
+    description: 'End-to-end onboarding redesign that reduced drop-off by 38% through clearer copy and simplified steps.',
+    tags: ['SaaS', 'Conversion', 'UX Research'],
+    link: null
   },
   {
-    id: 'cw-2',
-    title: '10 Simple Productivity Habits That Actually Work',
-    category: 'Content Writing Samples',
-    description: 'Personal development article designed for high engagement and blog readability.',
-    image: 'https://picsum.photos/seed/productivity/800/600?blur=2',
-    tags: ['Personal Development', 'Blog', 'Engagement'],
-    content: 'A highly engaging personal development piece focusing on actionable productivity habits, written with a conversational yet authoritative tone to maximize reader retention.'
+    title: 'E-commerce Checkout Optimization',
+    category: 'UI/UX',
+    description: 'Cart abandonment analysis and full checkout redesign for a regional e-commerce brand. 2.4× increase in completed purchases.',
+    tags: ['E-commerce', 'Conversion', 'UX'],
+    link: null
   },
   {
-    id: 'cw-3',
-    title: '5 Mistakes Brands Make With Content Marketing',
-    category: 'Content Writing Samples',
-    description: 'Marketing insights article highlighting common brand strategy mistakes.',
-    image: 'https://picsum.photos/seed/marketing-mistakes/800/600?blur=2',
-    tags: ['Marketing', 'B2B', 'Strategy'],
-    content: 'An insightful critique of common content marketing pitfalls, designed to position the author as an industry expert and provide immediate value to brand managers.'
+    title: 'Flowmingo Launch Campaign',
+    category: 'Copywriting',
+    description: 'Full copywriting suite for the Flowmingo AI recruitment platform launch: landing page, email sequence, and social proof materials.',
+    tags: ['AI', 'B2B', 'Email'],
+    link: null
   },
   {
-    id: 'cw-4',
-    title: 'Why Gen Z Chooses Brands Differently',
-    category: 'Content Writing Samples',
-    description: 'Research-based article analyzing Gen Z consumer behavior and brand engagement patterns.',
-    image: 'https://picsum.photos/seed/genz/800/600?blur=2',
-    tags: ['Research', 'Consumer Behavior', 'Branding'],
-    content: 'A data-informed editorial piece exploring the psychological and social drivers behind Gen Z purchasing decisions, showcasing deep research and analytical writing skills.'
-  },
-
-  // Copywriting Work
-  {
-    id: 'copy-1',
-    title: 'Shopify One-Page Strategy',
-    category: 'Copywriting Work',
-    description: 'Conversion-focused marketing strategy framework covering: audience research, brand voice, content pillars, CTA strategy, funnel structure.',
-    image: 'https://picsum.photos/seed/shopify/800/600?blur=2',
-    tags: ['E-commerce', 'Strategy', 'Conversion'],
-    content: 'A comprehensive one-page strategy document for Shopify brands. It outlines audience personas, establishes a compelling brand voice, defines core content pillars, and maps out a high-converting funnel with strategic CTAs.'
-  },
-  {
-    id: 'copy-2',
-    title: 'Email Newsletter Framework',
-    category: 'Copywriting Work',
-    description: 'Three-email sequence demonstrating storytelling email marketing, value-driven messaging, and CTA-based conversion writing.',
-    image: 'https://picsum.photos/seed/email/800/600?blur=2',
-    tags: ['Email Marketing', 'Storytelling', 'Sequence'],
-    content: 'Email 1: The Hook & Story: Capturing attention and building relatability.\n\nEmail 2: The Value Pivot: Transitioning from story to actionable advice.\n\nEmail 3: The Soft Pitch: Naturally introducing the offer with a strong, clear CTA.'
-  },
-  {
-    id: 'copy-3',
-    title: 'Social Media Copy Samples',
-    category: 'Copywriting Work',
-    description: 'Collection of LinkedIn marketing insights posts designed to drive engagement and brand authority.',
-    image: 'https://picsum.photos/seed/social/800/600?blur=2',
-    tags: ['LinkedIn', 'Social Media', 'Brand Authority'],
-    content: 'A portfolio of high-performing LinkedIn posts utilizing the "hook-story-offer" framework, optimized for the LinkedIn algorithm to maximize reach, spark comments, and build professional authority.'
+    title: 'Content Strategy Framework',
+    category: 'Content',
+    description: 'Three-month editorial calendar and SEO content strategy for a fintech startup, resulting in 180% organic traffic growth.',
+    tags: ['SEO', 'Fintech', 'Strategy'],
+    link: null
   }
 ];
 
 export function Portfolio() {
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
-  // Lock body scroll when modal is open
-  useEffect(() => {
-    if (selectedProject) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [selectedProject]);
-
-  const filteredItems = activeCategory === 'All' 
-    ? portfolioItems 
-    : portfolioItems.filter(item => item.category === activeCategory);
+  const filters = ['All', 'Website', 'UI/UX', 'Copywriting', 'Content'];
+  const filtered = activeFilter === 'All' ? projects : projects.filter(p => p.category === activeFilter);
 
   return (
-    <div className="flex flex-col min-h-screen relative">
-      {/* Hero Section */}
-      <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden px-6 py-20 border-b border-primary-lighter">
-        <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
-          <span className="text-accent text-xs font-bold uppercase tracking-[0.15em]">Our Work</span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-white"
-          >
-            Our Work Speaks <br className="hidden md:block" />
-            <span className="text-gradient-silver">Louder Than Our Words</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-secondary-muted text-lg md:text-xl max-w-2xl leading-relaxed"
-          >
-            Real projects. Real businesses. Real results. Browse our portfolio to see how we've helped companies transform their digital presence.
-          </motion.p>
+    <div className="bg-black text-white min-h-screen">
+      <section className="min-h-[70vh] flex items-center px-6 md:px-12 py-24 border-b border-white/10">
+        <div className="max-w-5xl">
+          <p className="text-xs uppercase tracking-[0.35em] text-white/60">Work</p>
+          <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">Work that speaks precisely and performs consistently.</h1>
+          <p className="mt-6 text-lg text-white/70 max-w-3xl leading-relaxed">A selection of projects across website design, UI/UX, copywriting, and content strategy. Real results for real businesses.</p>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 px-6 border-b border-primary-lighter bg-primary-soft/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="flex flex-col gap-2"
-              >
-                <span className="text-4xl md:text-5xl font-bold text-white">{stat.value}</span>
-                <span className="text-sm text-secondary-muted uppercase tracking-widest">{stat.label}</span>
-              </motion.div>
+      <section className="py-16 px-6 md:px-12 border-b border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
+            {stats.map((stat) => (
+              <div key={stat.label} className="bg-black px-8 py-10">
+                <div className="text-4xl md:text-5xl font-semibold">{stat.value}</div>
+                <div className="mt-2 text-xs uppercase tracking-[0.35em] text-white/50">{stat.label}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Filter Bar */}
-      <section className="sticky top-[72px] md:top-[88px] z-30 bg-primary/80 backdrop-blur-xl border-b border-primary-lighter py-4 px-6 overflow-x-auto no-scrollbar">
-        <div className="max-w-7xl mx-auto flex items-center gap-4 md:gap-8 min-w-max">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={twMerge(
-                'text-sm font-medium uppercase tracking-widest transition-all duration-300 relative pb-2',
-                activeCategory === category ? 'text-accent' : 'text-secondary-muted hover:text-white'
-              )}
-            >
-              {category}
-              {activeCategory === category && (
-                <motion.div
-                  layoutId="activeCategory"
-                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent"
-                />
-              )}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* Portfolio Grid */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.div 
-            key={activeCategory}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {filteredItems.map((item, index) => (
-              <div
-                key={item.id}
-                onClick={() => setSelectedProject(item)}
-                className="group relative rounded-2xl overflow-hidden bg-primary-soft/50 backdrop-blur-sm border border-primary-lighter aspect-[4/3] cursor-pointer hover:-translate-y-2 hover:shadow-2xl transition-all duration-500"
+      <section className="py-16 px-6 md:px-12 border-b border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex gap-8 overflow-x-auto no-scrollbar">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`text-xs uppercase tracking-[0.35em] shrink-0 pb-1 border-b transition-colors ${
+                  activeFilter === filter ? 'border-white text-white' : 'border-transparent text-white/50 hover:text-white/70'
+                }`}
               >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
-                  />
-                  
-                  {/* Category Pill */}
-                  <div className="absolute top-4 left-4 bg-primary/90 backdrop-blur-md border border-primary-lighter text-accent text-xs font-bold px-3 py-1.5 rounded-full z-10 shadow-lg">
-                    {item.category}
-                  </div>
+                {filter}
+              </button>
+            ))}
+          </div>
 
-                  {/* Overlay Content */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent opacity-90 flex flex-col justify-end p-6 md:p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-white mb-2 text-xl md:text-2xl font-bold leading-tight">{item.title}</h3>
-                    <p className="text-secondary-muted text-sm mb-4 line-clamp-2">{item.description}</p>
-                    
-                    <div className="flex items-center gap-2 text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                      {item.category === 'Website Projects' ? (
-                        <>View Project <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" /></>
-                      ) : (
-                        <>View Sample <FileText size={16} className="group-hover:translate-x-1 transition-transform" /></>
-                      )}
+          <div className="mt-12 grid gap-10 md:grid-cols-2">
+            {filtered.map((project) => (
+              <article
+                key={project.title}
+                onClick={() => project.link && setSelectedProject(project)}
+                className={`group border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all duration-300 ${project.link ? 'cursor-pointer' : ''}`}
+              >
+                <div className="aspect-[16/9] bg-[#f5f5f7] relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-black/20 text-sm uppercase tracking-[0.35em]">{project.category}</div>
                     </div>
                   </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Modal Preview System */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-primary/90 backdrop-blur-md"
-            onClick={() => setSelectedProject(null)}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-primary-soft border border-primary-lighter rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl"
-            >
-              {/* Modal Header Image */}
-              <div className="relative h-48 md:h-64 w-full overflow-hidden shrink-0">
-                <img src={selectedProject.image} alt={selectedProject.title} loading="lazy" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-soft to-transparent" />
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 bg-primary/50 hover:bg-primary text-white p-2 rounded-full backdrop-blur-md transition-colors border border-primary-lighter"
-                >
-                  <X size={20} />
-                </button>
-              </div>
-              
-              {/* Modal Content */}
-              <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="bg-accent/20 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-accent/20">
-                    {selectedProject.category}
-                  </span>
-                  {selectedProject.tags.map(tag => (
-                    <span key={tag} className="bg-primary-lighter/30 text-secondary-muted text-xs font-medium px-3 py-1 rounded-full border border-primary-lighter/50">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{selectedProject.title}</h2>
-                
-                <div className="prose prose-invert max-w-none">
-                  <p className="text-lg text-secondary-muted leading-relaxed mb-6">
-                    {selectedProject.description}
-                  </p>
-                  
-                  {selectedProject.content && (
-                    <div className="bg-primary/30 p-6 rounded-xl border border-primary-lighter mb-6">
-                      <h4 className="text-white font-medium mb-3 flex items-center gap-2">
-                        <FileText size={18} className="text-accent" /> Preview Content
-                      </h4>
-                      <p className="text-secondary-muted whitespace-pre-line leading-relaxed">
-                        {selectedProject.content}
-                      </p>
+                  {project.link && (
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="border border-white text-white text-xs uppercase tracking-[0.35em] px-4 py-2 rounded-full">View Project ↗</span>
                     </div>
                   )}
                 </div>
-                
-                {selectedProject.link && (
-                  <div className="mt-8 pt-6 border-t border-primary-lighter">
-                    <a
-                      href={selectedProject.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-white text-primary hover:bg-gray-200 font-bold py-3 px-6 rounded-full transition-colors"
-                    >
-                      Visit Live Site <ExternalLink size={18} />
-                    </a>
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs uppercase tracking-[0.35em] text-white/50">{project.category}</span>
+                    <div className="flex gap-2">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="text-xs text-white/40 border border-white/10 rounded-full px-2 py-0.5">{tag}</span>
+                      ))}
+                    </div>
                   </div>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* CTA Section */}
-      <section className="py-32 bg-secondary/80 backdrop-blur-md text-primary relative overflow-hidden px-6">
-        <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center gap-8">
-          <h2 className="text-primary max-w-3xl">Like What You See? Let's Create Something Even Better for Your Business.</h2>
-          <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
-            <Link to="/contact" className="px-10 py-5 bg-primary text-white font-bold rounded-full hover:bg-primary-lighter transition-colors text-lg w-full sm:w-auto">
-              Start Your Project &rarr;
-            </Link>
-            <Link to="/free-audit" className="px-10 py-5 border border-primary text-primary font-bold rounded-full hover:bg-primary/5 transition-colors text-lg w-full sm:w-auto">
-              Request a Free Audit &rarr;
-            </Link>
+                  <h3 className="text-xl font-semibold leading-tight">{project.title}</h3>
+                  <p className="mt-3 text-sm text-white/60 leading-relaxed">{project.description}</p>
+                </div>
+              </article>
+            ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 md:px-12">
+        <div className="max-w-5xl mx-auto text-center">
+          <h3 className="text-3xl font-semibold">Have a project in mind?</h3>
+          <p className="mt-4 text-white/70 leading-relaxed">We take on a limited number of projects each quarter. Reach out early to check availability.</p>
+          <Link
+            to="/contact"
+            className="mt-8 inline-flex items-center justify-center gap-2 bg-[#0071e3] text-white rounded-full px-8 py-3 font-semibold uppercase tracking-[0.35em] text-sm hover:bg-[#0071e3]/90 transition-colors"
+          >
+            Start a Project ↗
+          </Link>
         </div>
       </section>
     </div>
