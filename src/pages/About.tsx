@@ -26,7 +26,7 @@ export function About() {
           </FadeUp>
           <FadeUp delay={0.1}>
             <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
-              A small team with a precise, intentional approach to digital growth.
+              A focused team building, intentional approach to digital growth.
             </h1>
           </FadeUp>
           <FadeUp delay={0.2}>
